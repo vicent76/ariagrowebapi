@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "c62250e7-ed72-4d08-b2cd-def62ea619a5",
+		"name": "AriPres Web",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "52076",
+		"_collection_link": "https://planetary-firefly-930702.postman.co/workspace/aripresweb~0d085a06-8e05-465a-9c2b-88ab331d7944/collection/52076-c62250e7-ed72-4d08-b2cd-def62ea619a5?action=share&source=collection_link&creator=52076"
+	},
+	"item": [
+		{
+			"name": "Version",
+			"item": [
+				{
+					"name": "Version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/api/version",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"version"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trabajadores",
+			"item": [
+				{
+					"name": "Test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/api/trabajadores/test",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"trabajadores",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login trabajador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo\": 1,\n    \"pin\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}:{{port}}/api/trabajadores/login",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"trabajadores",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fichajes de trabajador",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/api/trabajadores/fichajes_corto/1",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"trabajadores",
+								"fichajes_corto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fichaje único",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/api/trabajadores/fichajes_unico",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"trabajadores",
+								"fichajes_unico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fichajes de trabajador fecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/api/trabajadores/fichajes_fecha/1",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"trabajadores",
+								"fichajes_fecha",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Fichajes de trabajador agrupados",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/api/trabajadores/fichajes_agrupado/1",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"trabajadores",
+								"fichajes_agrupado",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear fichaje",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idTrabajador\": 89,\n    \"Fecha\": \"2024-05-10\",\n    \"Hora\": \"08:00:00\",\n    \"HoraReal\":\"08:10:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}:{{port}}/api/trabajadores/fichajes",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"trabajadores",
+								"fichajes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Incidencias",
+			"item": [
+				{
+					"name": "Todas las incidencias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}:{{port}}/api/incidencias",
+							"host": [
+								"{{url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"incidencias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
