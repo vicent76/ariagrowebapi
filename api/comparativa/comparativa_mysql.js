@@ -8,7 +8,8 @@ const clientes_mysql = {
     datos_comparativa: async (data) => {
         let conn = undefined;
         let obj = {
-            nomempre: null
+            nomempre: null,
+            codempre: null
         };
         let arr = [];
         let codvariesPrimera = []; // Para almacenar los codvarie de la primera ejecución
@@ -69,7 +70,8 @@ const clientes_mysql = {
                     }
                     
                     // Guardamos los resultados para la empresa actual
-                    obj.nomempre = d.ariagro;
+                    obj.nomempre = d.nomempre;
+                    obj.codempre = d.codempre;
                     obj.datos = r;
                     arr.push(obj);
                     
