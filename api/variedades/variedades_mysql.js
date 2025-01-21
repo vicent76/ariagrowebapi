@@ -20,7 +20,24 @@ const variedades_mysql = {
             }
             throw (error)
         }
+    },
+    variedades_producto: async (codprodu) => {
+        let conn = undefined
+        try {
+            let cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+            let sql = `select * from variedades WHERE codprodu = ${codprodu}`
+            const [r] = await conn.query(sql)
+            await conn.end()
+            return r
+        } catch (error) {
+            if (conn) {
+                await conn.end()
+            }
+            throw (error)
+        }
     }
 }
+
 
 module.exports = variedades_mysql
