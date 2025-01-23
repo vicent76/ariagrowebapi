@@ -26,6 +26,9 @@ const clientes_mysql = {
                 sql += " p.nomprodu AS nomprodu,";
                 sql += " av.codvarie AS codvarie,";
                 sql += " v.nomvarie AS nomvarie,";
+                if (data.cliente) {
+                    sql += " c.nomclien AS nomclien,";
+                } else { " '' AS nomclien,"}
                 sql += " SUM(av.totpalet) AS totpalet,";
                 sql += " SUM(av.numcajas) AS numcajas,";
                 sql += " SUM(av.pesoneto) AS pesoneto";
@@ -33,6 +36,7 @@ const clientes_mysql = {
                 sql += " LEFT JOIN albaran as a ON a.numalbar = av.numalbar";
                 sql += " LEFT JOIN variedades AS v ON v.codvarie = av.codvarie";
                 sql += " LEFT JOIN productos AS p ON p.codprodu = v.codprodu";
+                sql += " LEFT JOIN clientes as c ON c.codclien = a.codclien";
                 sql += " WHERE 1 = 1";
     
                 // Filtros según los parámetros
