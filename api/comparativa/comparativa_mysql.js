@@ -29,6 +29,9 @@ const clientes_mysql = {
                 if (data.cliente) {
                     sql += " c.nomclien AS nomclien,";
                 } else { " '' AS nomclien,"}
+                if (data.variedad) {
+                    sql += " true AS filtoVariedad,";
+                } else { " false AS filtoVariedad,"}
                 sql += " SUM(av.totpalet) AS totpalet,";
                 sql += " SUM(av.numcajas) AS numcajas,";
                 sql += " SUM(av.pesoneto) AS pesoneto";

@@ -19,7 +19,6 @@ const appServer = {
         app.use(express.static(__dirname + '/www'));
         app.use('/api/version', require('./api/version/version_controlador'));
         app.use('/api/usuarios', require('./api/usuarios/usuarios_controlador'));
-        app.use('/api/incidencias', require('./api/incidencias/incidencias_controlador'));
         app.use('/api/empresas', require('./api/empresas/empresas_controlador'));
 
         //
