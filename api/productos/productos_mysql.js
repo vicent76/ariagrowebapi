@@ -20,6 +20,24 @@ const productos_mysql = {
             }
             throw (error)
         }
+    },
+    productos_variedad: async (codvarie) => {
+        let conn = undefined
+        try {
+            let cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+            let sql = `SELECT p.* FROM productos AS p`
+            sql += ` INNER JOIN variedades as v on v.codprodu = p.codprodu`;
+            sql += ` WHERE v.codvarie = ${codvarie}`
+            const [r] = await conn.query(sql)
+            await conn.end()
+            return r
+        } catch (error) {
+            if (conn) {
+                await conn.end()
+            }
+            throw (error)
+        }
     }
 }
 

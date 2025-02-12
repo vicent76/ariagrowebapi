@@ -10,7 +10,7 @@ router.get('/test', async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-})
+});
 
 router.get('/', async (req, res, next) => {
     try {
@@ -19,7 +19,16 @@ router.get('/', async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-})
+});
 
+
+router.get('/:codvarie', async (req, res, next) => {
+    try {
+        result = await productos_mysql.productos_variedad(req.params.codvarie)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+});
 
 module.exports = router

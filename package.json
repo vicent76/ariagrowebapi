@@ -1,12 +1,12 @@
 {
   "name": "ariagrowebapi",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Rafael Garcia (rafa@myariadna.com)",
+  "author": "Vicent Ribera (vicent@myariadna.com)",
   "license": "MIT",
   "dependencies": {
     "app-root-path": "^3.1.0",

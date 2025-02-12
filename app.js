@@ -19,13 +19,13 @@ const appServer = {
         app.use(express.static(__dirname + '/www'));
         app.use('/api/version', require('./api/version/version_controlador'));
         app.use('/api/usuarios', require('./api/usuarios/usuarios_controlador'));
-        app.use('/api/incidencias', require('./api/incidencias/incidencias_controlador'));
         app.use('/api/empresas', require('./api/empresas/empresas_controlador'));
 
         //
         app.use('/api/productos', require('./api/productos/productos_controlador'));
         app.use('/api/variedades', require('./api/variedades/variedades_controlador'));
         app.use('/api/clientes', require('./api/clientes/clientes_controlador'));
+        app.use('/api/comparativa', require('./api/comparativa/comparativa_controlador'));
 
         app.use((req, res, next) => {
             res.sendFile(path.join(__dirname,"www", "index.html"));
