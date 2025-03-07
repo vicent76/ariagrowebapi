@@ -6,6 +6,7 @@ const clientes_mysql = {
         return 'COMPARATIVA TEST'
     },
     datos_comparativa: async (data) => {
+        let dFecha = data.dateFormat;
         let conn = undefined;
         let obj = {
             nomempre: null,
