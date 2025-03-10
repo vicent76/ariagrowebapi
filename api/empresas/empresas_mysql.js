@@ -10,7 +10,7 @@ const empresas_mysql = {
         try {
             let cfg = await connector.usu()
             conn = await mysql.createConnection(cfg)
-            let sql = `select * from empresasariagro WHERE ariagroweb = 1`
+            let sql = `select * from empresasariagro WHERE ariagroweb = 1 ORDER BY fechaini ASC`
             const [r] = await conn.query(sql)
             if (r.length === 0) return {NomEmpresa: 'DESCONOCIDA'}
             await conn.end()

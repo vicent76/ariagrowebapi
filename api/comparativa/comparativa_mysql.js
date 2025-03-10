@@ -1,12 +1,13 @@
 const mysql = require('mysql2/promise')
-const connector = require('../../lib/conector_mysql')
+const connector = require('../../lib/conector_mysql');
+const moment = require('moment');
 
 const clientes_mysql = {
     test: async () => {
         return 'COMPARATIVA TEST'
     },
     datos_comparativa: async (data) => {
-        let dFecha = data.dateFormat;
+        let hfecha = data.dateFormat;
         let conn = undefined;
         let obj = {
             nomempre: null,
@@ -19,6 +20,10 @@ const clientes_mysql = {
         try {
             for (let d of data.empresas) {
                 console.log(`empresa: ${d.ariagro}`);
+                let f = moment(d.fechafin).year();
+                let fechafinal = f + "-" + hfecha; 
+                //
+                let fechainicio =  moment(d.fechaini).format('YYYY-MM-DD')
                 let cfg = await connector.empresa(d.ariagro);
                 conn = await mysql.createConnection(cfg);
                 
@@ -35,14 +40,16 @@ const clientes_mysql = {
                 } else { " false AS filtoVariedad,"}
                 sql += " SUM(av.totpalet) AS totpalet,";
                 sql += " SUM(av.numcajas) AS numcajas,";
-                sql += " SUM(av.pesoneto) AS pesoneto";
+                sql += " SUM(av.pesoneto) AS pesoneto,";
+                sql += " SUM(fv.impornet) AS impornet";
                 sql += " FROM albaran_variedad av";
                 sql += " LEFT JOIN albaran as a ON a.numalbar = av.numalbar";
                 sql += " LEFT JOIN variedades AS v ON v.codvarie = av.codvarie";
                 sql += " LEFT JOIN productos AS p ON p.codprodu = v.codprodu";
                 sql += " LEFT JOIN clientes as c ON c.codclien = a.codclien";
+                sql += " LEFT JOIN facturas_variedad AS fv ON fv.numalbar = av.numalbar AND fv.numlinealbar = av.numlinea";
                 sql += " WHERE 1 = 1";
-    
+                sql += " AND a.fechaalb >= '" + fechainicio + "' AND a.fechaalb <= '" + fechafinal + "'";
                 // Filtros según los parámetros
                 if (data.variedad) {
                     sql += ` AND av.codvarie = ${data.variedad}`;
