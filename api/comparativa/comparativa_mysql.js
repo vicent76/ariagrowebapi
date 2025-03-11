@@ -32,6 +32,7 @@ const clientes_mysql = {
                 sql += " p.nomprodu AS nomprodu,";
                 sql += " av.codvarie AS codvarie,";
                 sql += " v.nomvarie AS nomvarie,";
+                sql += "'" + hfecha + "' AS hFecha,";
                 if (data.cliente) {
                     sql += " c.nomclien AS nomclien,";
                 } else { " '' AS nomclien,"}
