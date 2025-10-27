@@ -28,13 +28,13 @@ const productos_mysql = {
             CONCAT('(', f.codforfait,  ')',' ', f.nomconfe) AS confeccion,
             ca.nomcalib,
             p.refclien,
-            p.fechacar,
+            DATE_FORMAT(p.fechacar, '%d/%m/%Y') AS fechacar,
             a.codtrans,
             a.nomtrans,
             a.teltrans,
             p.matriveh,
             p.matrirem,
-            p.horacarga
+            COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga
             FROM pedidos AS p
             LEFT JOIN pedidos_variedad AS pv ON pv.numpedid = p.numpedid
             LEFT JOIN pedidos_calibre AS pc ON pc.numpedid = pv.numpedid AND pc.numlinea = pv.numlinea
@@ -44,13 +44,15 @@ const productos_mysql = {
             LEFT JOIN forfaits AS f ON f.codforfait = pv.codforfait
             LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
             LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib
-            WHERE p.refclien = 25058758
+            WHERE p.fechacar = '${fecha}'
             `
             const [result] = await conn.query(sql)
             await conn.end();
             if(result.length > 0) {
                 for(let r of result) {
                     r.codigo = r.codigo.toString();
+                    r.fechacar = r.fechacar.toString();
+                    r.horacarga = r.horacarga.toString();
                 }
             }
             return result

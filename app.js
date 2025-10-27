@@ -11,13 +11,15 @@ dotenv.config()
 const app = express()
 
 const appServer = {
-    crearServidor: ()=>{
+    crearServidor: () => {
         winston.warn('Crear Servidor');
         app.use(cors());
         app.use(bodyParser.urlencoded({ extended: false }));
         app.use(bodyParser.json());
         app.use(express.static(__dirname + '/www'));
         app.use('/api/version', require('./api/version/version_controlador'));
+        app.use('/api/usuarios', require('./api/usuarios/usuarios_controlador'));
+        app.use('/api/entorno', require('./api/variables_entorno/variables_controlador'));
         app.use('/api/usuarios', require('./api/usuarios/usuarios_controlador'));
         app.use('/api/empresas', require('./api/empresas/empresas_controlador'));
 
@@ -28,7 +30,7 @@ const appServer = {
         app.use('/api/comparativa', require('./api/comparativa/comparativa_controlador'));
         app.use('/api/pedidos', require('./api/pedidos/pedidos_controlador'));
         app.use((req, res, next) => {
-            res.sendFile(path.join(__dirname,"www", "index.html"));
+            res.sendFile(path.join(__dirname, "www", "index.html"));
         });
 
         app.use((error, req, res, next) => {
@@ -44,11 +46,11 @@ const appServer = {
             });
         });
     },
-    lanzarServidor: ()=>{
+    lanzarServidor: () => {
         winston.warn('Lanzar Servidor');
         const port = process.env.ARAW_PORT || 49170
         winston.warn(`Servidor ARIPRESWEB-API escuchando en puerto: ${port}`)
-       app.listen(port, () => {})
+        app.listen(port, () => { })
     }
 }
 
