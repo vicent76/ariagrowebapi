@@ -34,10 +34,12 @@ const productos_mysql = {
             a.teltrans,
             p.matriveh,
             p.matrirem,
+            COALESCE(al.numalbar, '') AS numalbar,
             COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga
             FROM pedidos AS p
             LEFT JOIN pedidos_variedad AS pv ON pv.numpedid = p.numpedid
             LEFT JOIN pedidos_calibre AS pc ON pc.numpedid = pv.numpedid AND pc.numlinea = pv.numlinea
+            LEFT JOIN albaran AS al ON al.numpedid = p.numpedid
             LEFT JOIN clientes AS c ON c.codclien = p.codclien
             LEFT JOIN variedades AS v ON v.codvarie = pv.codvarie
             LEFT JOIN agencias AS a ON a.codtrans = p.codtrans
@@ -48,8 +50,8 @@ const productos_mysql = {
             `
             const [result] = await conn.query(sql)
             await conn.end();
-            if(result.length > 0) {
-                for(let r of result) {
+            if (result.length > 0) {
+                for (let r of result) {
                     r.codigo = r.codigo.toString();
                     r.fechacar = r.fechacar.toString();
                     r.horacarga = r.horacarga.toString();
