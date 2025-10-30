@@ -28,13 +28,13 @@ const productos_mysql = {
             CONCAT('(', f.codforfait,  ')',' ', f.nomconfe) AS confeccion,
             ca.nomcalib,
             p.refclien,
-            DATE_FORMAT(p.fechacar, '%d/%m/%Y') AS fechacar,
+            p.fechacar,
             a.codtrans,
             a.nomtrans,
             a.teltrans,
             p.matriveh,
             p.matrirem,
-            COALESCE(al.numalbar, '') AS numalbar,
+            al.numalbar,
             COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga
             FROM pedidos AS p
             LEFT JOIN pedidos_variedad AS pv ON pv.numpedid = p.numpedid
@@ -53,7 +53,6 @@ const productos_mysql = {
             if (result.length > 0) {
                 for (let r of result) {
                     r.codigo = r.codigo.toString();
-                    r.fechacar = r.fechacar.toString();
                     r.horacarga = r.horacarga.toString();
                 }
             }
