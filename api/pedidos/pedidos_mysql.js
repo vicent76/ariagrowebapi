@@ -47,6 +47,7 @@ const productos_mysql = {
             LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
             LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib
             WHERE p.fechacar = '${fecha}'
+            ORDER BY p.fechaped, p.numpedid, c.nomclien
             `
             const [result] = await conn.query(sql)
             await conn.end();
@@ -54,6 +55,17 @@ const productos_mysql = {
                 for (let r of result) {
                     r.codigo = r.codigo.toString();
                     r.horacarga = r.horacarga.toString();
+
+                    // ⚠️ Simular pequeñas diferencias aleatorias
+                    if (Math.random() < 0.3) { // 30% de los pedidos cambian algo
+                        r.numcajas = r.numcajas + 1; // cambia número de cajas
+                    }
+                    if (Math.random() < 0.2) { // 20% de los pedidos cambian peso
+                        r.kgs = r.kgs + Math.floor(Math.random() * 10); // aumenta algo el peso
+                    }
+                    if (Math.random() < 0.1) { // 10% de los pedidos cambian hora
+                        r.horacarga = "09:00";
+                    }
                 }
             }
             return result
