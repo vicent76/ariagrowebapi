@@ -7,24 +7,23 @@ const clientes_mysql = {
         return 'COMPARATIVA TEST'
     },
     datos_comparativa: async (data) => {
-        let hfecha = data.dateFormat;
         let conn = undefined;
         let obj = {
             nomempre: null,
             codempre: null
         };
+        
         let arr = [];
         let codvariesPrimera = []; // Para almacenar los codvarie de la primera ejecución
         let [r] = []
     
+
+        let fechas = [
+            { dFecha: date.format('YYYY-MM-DD'), hfecha: hdate.format('YYYY-MM-DD') }, { dFecha: date.subtract(1, 'year').format('YYYY-MM-DD'), hfecha: hdate.subtract(1, 'year').format('YYYY-MM-DD') }];
+        let objFechas = {};
         try {
-            for (let d of data.empresas) {
-                console.log(`empresa: ${d.ariagro}`);
-                let f = moment(d.fechafin).year();
-                let fechafinal = f + "-" + hfecha; 
-                //
-                let fechainicio =  moment(d.fechaini).format('YYYY-MM-DD')
-                let cfg = await connector.empresa(d.ariagro);
+            for (let d of fechas) {
+                let cfg = await connector.base();
                 conn = await mysql.createConnection(cfg);
                 
                 let sql = "SELECT";
@@ -50,7 +49,7 @@ const clientes_mysql = {
                 sql += " LEFT JOIN clientes as c ON c.codclien = a.codclien";
                 sql += " LEFT JOIN facturas_variedad AS fv ON fv.numalbar = av.numalbar AND fv.numlinealbar = av.numlinea";
                 sql += " WHERE 1 = 1";
-                sql += " AND a.fechaalb >= '" + fechainicio + "' AND a.fechaalb <= '" + fechafinal + "'";
+                sql += " AND a.fechaalb >= '" + d.dFecha + "' AND a.fechaalb <= '" + d.hfecha + "'";
                 // Filtros según los parámetros
                 if (data.variedad) {
                     sql += ` AND av.codvarie = ${data.variedad}`;
@@ -86,8 +85,8 @@ const clientes_mysql = {
                     }
                     
                     // Guardamos los resultados para la empresa actual
-                    obj.nomempre = d.nomempre;
-                    obj.codempre = d.codempre;
+                    obj.nomempre = '';
+                    obj.codempre = '';
                     obj.datos = r;
                     arr.push(obj);
                     
