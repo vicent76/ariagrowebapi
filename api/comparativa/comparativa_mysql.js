@@ -17,11 +17,11 @@ const clientes_mysql = {
         let codvariesPrimera = []; // Para almacenar los codvarie de la primera ejecución
         let [r] = []
     
-
-        let fechas = [
-            { dFecha: date.format('YYYY-MM-DD'), hfecha: hdate.format('YYYY-MM-DD') }, { dFecha: date.subtract(1, 'year').format('YYYY-MM-DD'), hfecha: hdate.subtract(1, 'year').format('YYYY-MM-DD') }];
-        let objFechas = {};
-        try {
+      try {
+            let fechas = [
+                { dFecha: moment(data.date, 'YYYY-MM-DD').format('YYYY-MM-DD'), hfecha: moment(data.hDate, 'YYYY-MM-DD').format('YYYY-MM-DD') }, { dFecha: moment(data.date, 'YYYY-MM-DD').subtract(1, 'year').format('YYYY-MM-DD'), hfecha:   moment(data.hDate, 'YYYY-MM-DD').subtract(1, 'year').format('YYYY-MM-DD') }];
+            
+    
             for (let d of fechas) {
                 let cfg = await connector.base();
                 conn = await mysql.createConnection(cfg);
@@ -31,7 +31,7 @@ const clientes_mysql = {
                 sql += " p.nomprodu AS nomprodu,";
                 sql += " av.codvarie AS codvarie,";
                 sql += " v.nomvarie AS nomvarie,";
-                sql += "'" + hfecha + "' AS hFecha,";
+                sql += "'" + d.hfecha + "' AS hFecha,";
                 if (data.cliente) {
                     sql += " c.nomclien AS nomclien,";
                 } else { " '' AS nomclien,"}
