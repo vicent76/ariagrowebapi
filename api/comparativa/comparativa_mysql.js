@@ -41,7 +41,7 @@ const clientes_mysql = {
                 sql += " SUM(av.totpalet) AS totpalet,";
                 sql += " SUM(av.numcajas) AS numcajas,";
                 sql += " SUM(av.pesoneto) AS pesoneto,";
-                sql += " SUM(fv.impornet) AS impornet";
+                sql += " SUM(fv.impornet) AS importe";
                 sql += " FROM albaran_variedad av";
                 sql += " LEFT JOIN albaran as a ON a.numalbar = av.numalbar";
                 sql += " LEFT JOIN variedades AS v ON v.codvarie = av.codvarie";
