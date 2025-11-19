@@ -12,32 +12,30 @@ const clientes_mysql = {
             nomempre: null,
             codempre: null
         };
-        
+
         let arr = [];
         let codvariesPrimera = []; // Para almacenar los codvarie de la primera ejecución
         let [r] = []
-    
-      try {
+
+        try {
             let fechas = [
-                { dFecha: moment(data.date, 'YYYY-MM-DD').format('YYYY-MM-DD'), hfecha: moment(data.hDate, 'YYYY-MM-DD').format('YYYY-MM-DD') }, { dFecha: moment(data.date, 'YYYY-MM-DD').subtract(1, 'year').format('YYYY-MM-DD'), hfecha:   moment(data.hDate, 'YYYY-MM-DD').subtract(1, 'year').format('YYYY-MM-DD') }];
-            
-    
+                { dFecha: moment(data.date, 'YYYY-MM-DD').format('YYYY-MM-DD'), hfecha: moment(data.hDate, 'YYYY-MM-DD').format('YYYY-MM-DD') }, { dFecha: moment(data.date, 'YYYY-MM-DD').subtract(1, 'year').format('YYYY-MM-DD'), hfecha: moment(data.hDate, 'YYYY-MM-DD').subtract(1, 'year').format('YYYY-MM-DD') }];
+
+
             for (let d of fechas) {
                 let cfg = await connector.base();
                 conn = await mysql.createConnection(cfg);
-                
+
                 let sql = "SELECT";
                 sql += " p.codprodu AS codprodu,";
                 sql += " p.nomprodu AS nomprodu,";
                 sql += " av.codvarie AS codvarie,";
                 sql += " v.nomvarie AS nomvarie,";
                 sql += "'" + d.hfecha + "' AS hFecha,";
-                if (data.cliente) {
-                    sql += " c.nomclien AS nomclien,";
-                } else { " '' AS nomclien,"}
+                sql += " c.nomclien AS nomclien,";
                 if (data.variedad) {
                     sql += " true AS filtoVariedad,";
-                } else { " false AS filtoVariedad,"}
+                } else { " false AS filtoVariedad," }
                 sql += " SUM(av.totpalet) AS totpalet,";
                 sql += " SUM(av.numcajas) AS numcajas,";
                 sql += " SUM(av.pesoneto) AS pesoneto,";
@@ -65,10 +63,10 @@ const clientes_mysql = {
                     sql += " ORDER BY av.codvarie";
                     [r] = await conn.query(sql);
                 }
-              
-    
-               
-    
+
+
+
+
                 if (r.length > 0) {
                     if (codvariesPrimera.length === 0) {
                         // Si es la primera empresa, guardamos los codvarie
@@ -83,22 +81,22 @@ const clientes_mysql = {
                             r = rFiltrada;
                         }
                     }
-                    
+
                     // Guardamos los resultados para la empresa actual
                     obj.nomempre = '';
                     obj.codempre = '';
                     obj.datos = r;
                     arr.push(obj);
-                    
+
                     // Reiniciamos el objeto
                     obj = {};
                 }
-    
+
                 await conn.end();
             }
-            
+
             return arr;
-    
+
         } catch (error) {
             if (conn) {
                 await conn.end();
@@ -106,7 +104,7 @@ const clientes_mysql = {
             throw error;
         }
     }
-    
+
 }
 
 module.exports = clientes_mysql
