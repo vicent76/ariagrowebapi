@@ -47,6 +47,7 @@ const productos_mysql = {
             LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
             LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib
             WHERE p.fechacar = '${fecha}'
+            ORDER BY p.fechaped, p.numpedid, c.nomclien
             `
             const [result] = await conn.query(sql)
             await conn.end();

@@ -17,17 +17,18 @@
     <Page1 Ref="2" type="Page" isKey="true">
       <Border>None;Black;2;Solid;False;4;Black</Border>
       <Brush>Transparent</Brush>
-      <Components isList="true" count="6">
+      <Components isList="true" count="5">
         <PageHeaderBand1 Ref="3" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.4,27.7,2.8</ClientRectangle>
-          <Components isList="true" count="4">
+          <ClientRectangle>0,0.4,17.7,3</ClientRectangle>
+          <Components isList="true" count="5">
             <Text17 Ref="4" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>19.4,0.6,7.2,0.8</ClientRectangle>
+              <ClientRectangle>11,0.2,5.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,14</Font>
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
               <Page isRef="2" />
@@ -38,7 +39,7 @@
             </Text17>
             <Image2 Ref="5" type="Image" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.6,0.2,2.4,1.8</ClientRectangle>
+              <ClientRectangle>0.6,0,1.8,1.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Guid>6bc9b02feaac41f0b05546d66c3db2f9</Guid>
@@ -193,38 +194,58 @@ rkJggg==</ImageBytes>
               <Parent isRef="3" />
               <Stretch>True</Stretch>
             </Image2>
-            <Text66 Ref="6" type="Text" isKey="true">
+            <Text30 Ref="6" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.6,1.6,10.2,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>Comparativa.cliente,EqualTo,,,String,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
+              <ClientRectangle>3.4,0.8,7,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Tahoma,9,Bold</Font>
               <Margins>0,0,0,0</Margins>
-              <Name>Text66</Name>
+              <Name>Text30</Name>
               <Page isRef="2" />
               <Parent isRef="3" />
-              <Text>Cliente selecionado: {Comparativa.cliente}</Text>
+              <Text>De {filtro.dFecha} a {filtro.hFecha}
+</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text66>
-            <Text68 Ref="7" type="Text" isKey="true">
+            </Text30>
+            <Text32 Ref="7" type="Text" isKey="true">
+              <AllowHtmlTags>True</AllowHtmlTags>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.6,2,10.2,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>Comparativa.filtoVariedad,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
+              <CanShrink>True</CanShrink>
+              <ClientRectangle>3.4,1.4,7,1.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Tahoma,9,Bold</Font>
+              <LineSpacing>1.3</LineSpacing>
               <Margins>0,0,0,0</Margins>
-              <Name>Text68</Name>
+              <Name>Text32</Name>
               <Page isRef="2" />
               <Parent isRef="3" />
-              <Text>Variedad Selecionada: {Comparativa.variedad}</Text>
+              <Text>{IIF(filtro.variedad != "" &amp;&amp; filtro.producto != "", "PRODUCTO: " + filtro.producto  +  " &lt;br&gt;VARIEDAD: " + filtro.variedad,
+ IIF(filtro.variedad == "" &amp;&amp; filtro.producto != "", "PRODUCTO: " + filtro.producto,
+ IIF(filtro.variedad != "" &amp;&amp; filtro.producto == "", "VARIEDAD: " + filtro.variedad, ""
+)))}
+
+</Text>
+              <TextBrush>Black</TextBrush>
+              <TextQuality>Wysiwyg</TextQuality>
+              <Type>Expression</Type>
+            </Text32>
+            <Text31 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0.2,7.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="2" />
+              <Parent isRef="3" />
+              <Text>{filtro.cliente}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text68>
+            </Text31>
           </Components>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
@@ -232,14 +253,14 @@ rkJggg==</ImageBytes>
           <Page isRef="2" />
           <Parent isRef="2" />
         </PageHeaderBand1>
-        <PageFooterBand1 Ref="8" type="PageFooterBand" isKey="true">
+        <PageFooterBand1 Ref="9" type="PageFooterBand" isKey="true">
           <Border>Top;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,17.4,27.7,0.6</ClientRectangle>
+          <ClientRectangle>0,25.9,17.7,0.8</ClientRectangle>
           <Components isList="true" count="2">
-            <Text15 Ref="9" type="Text" isKey="true">
+            <Text15 Ref="10" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>22.2,0,5.4,0.4</ClientRectangle>
+              <ClientRectangle>12.2,0,5.4,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
@@ -247,22 +268,22 @@ rkJggg==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="2" />
-              <Parent isRef="8" />
+              <Parent isRef="9" />
               <Text>{PageNofM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>SystemVariables</Type>
               <VertAlignment>Bottom</VertAlignment>
             </Text15>
-            <Text64 Ref="10" type="Text" isKey="true">
+            <Text64 Ref="11" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.2,0,5.4,0.4</ClientRectangle>
+              <ClientRectangle>0,0,5.4,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text64</Name>
               <Page isRef="2" />
-              <Parent isRef="8" />
+              <Parent isRef="9" />
               <Text>{Time}</Text>
               <TextBrush>Black</TextBrush>
               <Type>SystemVariables</Type>
@@ -275,205 +296,177 @@ rkJggg==</ImageBytes>
           <Page isRef="2" />
           <Parent isRef="2" />
         </PageFooterBand1>
-        <HeaderBand1 Ref="11" type="HeaderBand" isKey="true">
+        <HeaderBand1 Ref="12" type="HeaderBand" isKey="true">
           <Border>Bottom;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,4,27.7,1</ClientRectangle>
-          <Components isList="true" count="13">
-            <Text18 Ref="12" type="Text" isKey="true">
+          <ClientRectangle>0,4.2,17.7,0.8</ClientRectangle>
+          <Components isList="true" count="11">
+            <Text13 Ref="13" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.2,0.6,3,0.4</ClientRectangle>
+              <ClientRectangle>9.4,0,7.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,10</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text18</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>VARIEDAD</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text18>
-            <Text19 Ref="13" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,0.6,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text19</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>PALETS</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text19>
-            <Text20 Ref="14" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>5.2,0.6,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text20</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>CAJAS</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text20>
-            <Text21 Ref="15" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>7,0.6,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text21</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>KILOS</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text21>
-            <Text27 Ref="16" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>9.2,0.6,1.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text27</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>PALETS</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text27>
-            <Text22 Ref="17" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>11.8,0.6,2.2,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text22</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>CAJAS</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text22>
-            <Text23 Ref="18" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>14.8,0.6,2.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text23</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>KILOS</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text23>
-            <Text3 Ref="19" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,0,5.4,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text3</Name>
-              <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>{Comparativa.nomempre}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text3>
-            <Text13 Ref="20" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>9.2,0,8.2,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,10,Bold</Font>
+              <Font>Tahoma,9,Bold</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
               <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>{Comparativa.nomempre1}</Text>
+              <Parent isRef="12" />
+              <Text>{filtro.anyo}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
             </Text13>
-            <Text25 Ref="21" type="Text" isKey="true">
+            <Text18 Ref="14" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>18.6,0.6,1.8,0.4</ClientRectangle>
+              <ClientRectangle>0,0.4,2.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
-              <HorAlignment>Right</HorAlignment>
+              <Font>Tahoma,8,Bold</Font>
               <Margins>0,0,0,0</Margins>
-              <Name>Text25</Name>
+              <Name>Text18</Name>
               <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>PALETS</Text>
+              <Parent isRef="12" />
+              <Text>VARIEDAD</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text25>
-            <Text26 Ref="22" type="Text" isKey="true">
+            </Text18>
+            <Text27 Ref="15" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>21.2,0.6,2.2,0.4</ClientRectangle>
+              <ClientRectangle>9.4,0.4,0.8,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Tahoma,8,Bold</Font>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text26</Name>
+              <Name>Text27</Name>
               <Page isRef="2" />
-              <Parent isRef="11" />
+              <Parent isRef="12" />
+              <Text>PAL.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text27>
+            <Text22 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.2,0.4,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="2" />
+              <Parent isRef="12" />
               <Text>CAJAS</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text26>
-            <Text28 Ref="23" type="Text" isKey="true">
+            </Text22>
+            <Text23 Ref="17" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>24.2,0.6,2.6,0.4</ClientRectangle>
+              <ClientRectangle>13.2,0.4,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Arial,9</Font>
+              <Font>Tahoma,8,Bold</Font>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text28</Name>
+              <Name>Text23</Name>
               <Page isRef="2" />
-              <Parent isRef="11" />
+              <Parent isRef="12" />
               <Text>KILOS</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text28>
-            <Text32 Ref="24" type="Text" isKey="true">
+            </Text23>
+            <Text24 Ref="18" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>18.6,0,8.2,0.6</ClientRectangle>
+              <ClientRectangle>15.2,0.4,1.8,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,10,Bold</Font>
-              <HorAlignment>Center</HorAlignment>
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text32</Name>
+              <Name>Text24</Name>
               <Page isRef="2" />
-              <Parent isRef="11" />
-              <Text>{Comparativa.nomempre2}</Text>
+              <Parent isRef="12" />
+              <Text>IMPORTE</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text32>
+            </Text24>
+            <Text3 Ref="19" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,0,5.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="2" />
+              <Parent isRef="12" />
+              <Text>{filtro.anyoAnterior}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text19 Ref="20" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,0.4,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="2" />
+              <Parent isRef="12" />
+              <Text>PAL.</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text19>
+            <Text20 Ref="21" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.6,0.4,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="2" />
+              <Parent isRef="12" />
+              <Text>CAJAS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text20>
+            <Text21 Ref="22" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,0.4,1.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="2" />
+              <Parent isRef="12" />
+              <Text>KILOS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <Text1 Ref="23" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.4,0.4,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,2,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="2" />
+              <Parent isRef="12" />
+              <Text>IMPORTE</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
           </Components>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
@@ -481,620 +474,29 @@ rkJggg==</ImageBytes>
           <Page isRef="2" />
           <Parent isRef="2" />
         </HeaderBand1>
-        <GroupHeaderBand2 Ref="25" type="GroupHeaderBand" isKey="true">
-          <Brush>Transparent</Brush>
-          <ClientRectangle>0,5.8,27.7,0.8</ClientRectangle>
-          <Components isList="true" count="22">
-            <Text1 Ref="26" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>0.2,0.2,3,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text1</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Comparativa.producto}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text1>
-            <Text14 Ref="27" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,0.2,1.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text14</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.palets)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="28" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text14>
-            <Text16 Ref="29" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>5.2,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text16</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.cajas)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="30" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text16>
-            <Text24 Ref="31" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>7.2,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text24</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.pesoNeto)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="32" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text24>
-            <Text29 Ref="33" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>9.2,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text29</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.palets1)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="34" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text29>
-            <Text30 Ref="35" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>12.2,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text30</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.cajas1)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="36" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text30>
-            <Text31 Ref="37" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>15.6,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text31</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.pesoNeto1)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="38" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text31>
-            <Text33 Ref="39" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>18.8,0.2,1.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text33</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.palets2)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="40" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text33>
-            <Text34 Ref="41" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>21.6,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text34</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.cajas2)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="42" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text34>
-            <Text35 Ref="43" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>24.8,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text35</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{Sum(GroupHeaderBand2,Comparativa.pesoNeto2)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="44" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text35>
-            <Text42 Ref="45" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>11.2,0.2,0.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>Comparativa.isPaletsZero1,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets1_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0029__x0020__x002F__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0020__x002A__x0020_100_x002C__x0020_2_x0029__x000D__x000A_,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text42</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{0}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text42>
-            <Text43 Ref="46" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>11.8,0.2,0.3,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,5,Bold</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text43</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>%</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="47" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text43>
-            <Text44 Ref="48" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>14.2,0.2,0.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>Comparativa.isCajasZero1,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas1_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0029__x0020__x002F__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text44</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{0}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="49" type="NumberFormat" isKey="true">
-                <DecimalDigits>2</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text44>
-            <Text45 Ref="50" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>15,0.2,0.3,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,5,Bold</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text45</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>%</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="51" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text45>
-            <Text46 Ref="52" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>17.6,0.2,0.7,0.4</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>Comparativa.isPesoNetoZero1,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto1_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0029__x0020__x002F__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text46</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{0}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="53" type="NumberFormat" isKey="true">
-                <DecimalDigits>2</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text46>
-            <Text47 Ref="54" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>18.2,0.2,0.3,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,5,Bold</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text47</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>%</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="55" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text47>
-            <Text48 Ref="56" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>20.6,0.2,0.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="2">
-                <value>Comparativa.isPaletsZero2,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets2_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0029__x0020__x002F__x0020__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6,Bold</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text48</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{0}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="57" type="NumberFormat" isKey="true">
-                <DecimalDigits>2</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text48>
-            <Text49 Ref="58" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>21.2,0.2,0.3,0.3</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,5,Bold</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text49</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>%</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="59" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text49>
-            <Text50 Ref="60" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>23.6,0.2,0.7,0.4</ClientRectangle>
-              <Conditions isList="true" count="2">
-                <value>Comparativa.isCajasZero2,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas2_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0029__x0020__x002F__x0020__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[0:0:0],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6,Bold</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text50</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{0}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="61" type="NumberFormat" isKey="true">
-                <DecimalDigits>2</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text50>
-            <Text51 Ref="62" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>24.2,0.2,0.4,0.3</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,5,Bold</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text51</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>%</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="63" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text51>
-            <Text52 Ref="64" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>26.8,0.2,0.6,0.4</ClientRectangle>
-              <Conditions isList="true" count="2">
-                <value>Comparativa.isPesoNetoZero2,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto2_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0029__x0020__x002F__x0020__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6,Bold</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text52</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>{0}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="65" type="NumberFormat" isKey="true">
-                <DecimalDigits>2</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text52>
-            <Text53 Ref="66" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>27.4,0.2,0.3,0.3</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,5,Bold</Font>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text53</Name>
-              <Page isRef="2" />
-              <Parent isRef="25" />
-              <Text>%</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="67" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text53>
-          </Components>
-          <Condition>{Comparativa.codprodu}</Condition>
-          <Conditions isList="true" count="0" />
-          <Expressions isList="true" count="0" />
-          <Name>GroupHeaderBand2</Name>
-          <Page isRef="2" />
-          <Parent isRef="2" />
-        </GroupHeaderBand2>
-        <DataBand2 Ref="68" type="DataBand" isKey="true">
+        <DataBand2 Ref="24" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,7.4,27.7,0.4</ClientRectangle>
-          <Components isList="true" count="16">
-            <Text2 Ref="69" type="Text" isKey="true">
+          <ClientRectangle>0,5.8,17.7,0.5</ClientRectangle>
+          <Components isList="true" count="13">
+            <Text2 Ref="25" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.6,0,2.6,0.3</ClientRectangle>
+              <ClientRectangle>0,0.2,3.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,7</Font>
+              <Font>Tahoma,8</Font>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
+              <Parent isRef="24" />
               <Text>{Comparativa.variedad}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
             </Text2>
-            <Text4 Ref="70" type="Text" isKey="true">
+            <Text7 Ref="26" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,0,1.6,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,8</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text4</Name>
-              <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.palets}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="71" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text4>
-            <Text5 Ref="72" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>5.2,0,1.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,8</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text5</Name>
-              <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.cajas}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="73" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text5>
-            <Text6 Ref="74" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>7.2,0,1.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,8</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text6</Name>
-              <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.pesoNeto}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="75" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-            </Text6>
-            <Text7 Ref="76" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>9.2,0,1.8,0.3</ClientRectangle>
+              <ClientRectangle>9.4,0.2,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
@@ -1103,37 +505,54 @@ rkJggg==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
+              <Parent isRef="24" />
               <Text> {Comparativa.palets1} </Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="77" type="NumberFormat" isKey="true">
+              <TextFormat Ref="27" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
+                <DecimalSeparator />
                 <GroupSeparator>.</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
-                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
-                <UseLocalSetting>False</UseLocalSetting>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize</State>
               </TextFormat>
               <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
             </Text7>
-            <Text8 Ref="78" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>14.2,0,1,0.3</ClientRectangle>
+            <Text10 Ref="28" type="Text" isKey="true">
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>10.2,0.2,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,6</Font>
+              <Font>Tahoma,5</Font>
               <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
+              <Margins>0,0,0,2</Margins>
+              <Name>Text10</Name>
+              <Page isRef="2" />
+              <Parent isRef="24" />
+              <Text>{Comparativa.porcentajePalets1}%</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text10>
+            <Text8 Ref="29" type="Text" isKey="true">
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>12.4,0.2,0.9,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,5</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,2</Margins>
               <Name>Text8</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
+              <Parent isRef="24" />
               <Text>{Comparativa.porcentajeCajas1}%</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
             </Text8>
-            <Text9 Ref="79" type="Text" isKey="true">
+            <Text9 Ref="30" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>15.4,0,2,0.3</ClientRectangle>
+              <ClientRectangle>13.4,0.2,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
@@ -1142,10 +561,10 @@ rkJggg==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
+              <Parent isRef="24" />
               <Text>{Comparativa.pesoNeto1}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="80" type="NumberFormat" isKey="true">
+              <TextFormat Ref="31" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1154,26 +573,11 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
+              <VertAlignment>Bottom</VertAlignment>
             </Text9>
-            <Text10 Ref="81" type="Text" isKey="true">
+            <Text11 Ref="32" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>11.2,0,0.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text10</Name>
-              <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.porcentajePalets1}%</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text10>
-            <Text11 Ref="82" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>12.2,0,1.8,0.3</ClientRectangle>
+              <ClientRectangle>11.2,0.2,1.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
@@ -1182,10 +586,10 @@ rkJggg==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
+              <Parent isRef="24" />
               <Text>{Comparativa.cajas1}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="83" type="NumberFormat" isKey="true">
+              <TextFormat Ref="33" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1194,38 +598,39 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
             </Text11>
-            <Text12 Ref="84" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>17.6,0,0.8,0.3</ClientRectangle>
+            <Text12 Ref="34" type="Text" isKey="true">
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>14.8,0.2,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,6</Font>
+              <Font>Tahoma,5</Font>
               <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
+              <Margins>0,0,0,2</Margins>
               <Name>Text12</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
+              <Parent isRef="24" />
               <Text>{Comparativa.porcentajePesoNeto1}%</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
+              <VertAlignment>Bottom</VertAlignment>
             </Text12>
-            <Text36 Ref="85" type="Text" isKey="true">
+            <Text25 Ref="35" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>18.6,0,1.8,0.3</ClientRectangle>
+              <ClientRectangle>15.6,0.2,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <HideZeros>True</HideZeros>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text36</Name>
+              <Name>Text25</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text> {Comparativa.palets2} </Text>
+              <Parent isRef="24" />
+              <Text>{Comparativa.importe1}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="86" type="NumberFormat" isKey="true">
+              <TextFormat Ref="36" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1234,39 +639,39 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Expression</Type>
-            </Text36>
-            <Text37 Ref="87" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>23.6,0,0.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text25>
+            <Text28 Ref="37" type="Text" isKey="true">
+              <Brush>[242:242:242]</Brush>
+              <ClientRectangle>17,0.2,0.7,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,6</Font>
+              <Font>Tahoma,5</Font>
               <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text37</Name>
+              <Margins>0,0,0,2</Margins>
+              <Name>Text28</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.porcentajeCajas2}%</Text>
+              <Parent isRef="24" />
+              <Text>{Comparativa.porcentajeImporte1}%</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
-            </Text37>
-            <Text38 Ref="88" type="Text" isKey="true">
+              <VertAlignment>Bottom</VertAlignment>
+            </Text28>
+            <Text4 Ref="38" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>24.6,0,2,0.3</ClientRectangle>
+              <ClientRectangle>3.8,0.2,0.8,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <HideZeros>True</HideZeros>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text38</Name>
+              <Name>Text4</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.pesoNeto2}</Text>
+              <Parent isRef="24" />
+              <Text>{Comparativa.palets}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="89" type="NumberFormat" isKey="true">
+              <TextFormat Ref="39" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1275,40 +680,48 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text38>
-            <Text39 Ref="90" type="Text" isKey="true">
+              <VertAlignment>Bottom</VertAlignment>
+            </Text4>
+            <Text5 Ref="40" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>20.6,0,0.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,6</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text39</Name>
-              <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.porcentajePalets2}%</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-            </Text39>
-            <Text40 Ref="91" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>21.6,0,1.8,0.3</ClientRectangle>
+              <ClientRectangle>4.8,0.2,1.2,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <HideZeros>True</HideZeros>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text40</Name>
+              <Name>Text5</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.cajas2}</Text>
+              <Parent isRef="24" />
+              <Text>{Comparativa.cajas}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="92" type="NumberFormat" isKey="true">
+              <TextFormat Ref="41" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text5>
+            <Text6 Ref="42" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6.2,0.2,1.2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="2" />
+              <Parent isRef="24" />
+              <Text>{Comparativa.pesoNeto}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="43" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1317,25 +730,33 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Expression</Type>
-            </Text40>
-            <Text41 Ref="93" type="Text" isKey="true">
+              <VertAlignment>Bottom</VertAlignment>
+            </Text6>
+            <Text14 Ref="44" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>26.8,0,0.8,0.3</ClientRectangle>
-              <Conditions isList="true" count="1">
-                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
-              </Conditions>
+              <ClientRectangle>7.6,0.2,1.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,6</Font>
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
               <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text41</Name>
+              <Margins>0,2,0,0</Margins>
+              <Name>Text14</Name>
               <Page isRef="2" />
-              <Parent isRef="68" />
-              <Text>{Comparativa.porcentajePesoNeto2}%</Text>
+              <Parent isRef="24" />
+              <Text>{Comparativa.importe}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="45" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
               <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text41>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text14>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName>Relación</DataRelationName>
@@ -1347,83 +768,28 @@ rkJggg==</ImageBytes>
           <Parent isRef="2" />
           <Sort isList="true" count="0" />
         </DataBand2>
-        <FooterBand1 Ref="94" type="FooterBand" isKey="true">
-          <Border>Top;Black;1;Solid;False;4;Black</Border>
+        <FooterBand1 Ref="46" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,8.6,27.7,0.8</ClientRectangle>
+          <ClientRectangle>0,7.1,17.7,0.8</ClientRectangle>
           <Components isList="true" count="10">
-            <Text54 Ref="95" type="Text" isKey="true">
+            <Text63 Ref="47" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.4,0.2,1.6,0.4</ClientRectangle>
+              <ClientRectangle>0,0.2,1.4,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
+              <Font>Tahoma,8,Bold</Font>
               <Margins>0,0,0,0</Margins>
-              <Name>Text54</Name>
+              <Name>Text63</Name>
               <Page isRef="2" />
-              <Parent isRef="94" />
-              <Text>{Sum(DataBand2,Comparativa.palets)}</Text>
+              <Parent isRef="46" />
+              <Text>TOTAL:</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="96" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text54>
-            <Text55 Ref="97" type="Text" isKey="true">
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text63>
+            <Text57 Ref="48" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.2,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text55</Name>
-              <Page isRef="2" />
-              <Parent isRef="94" />
-              <Text>{Sum(DataBand2,Comparativa.cajas)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="98" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text55>
-            <Text56 Ref="99" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>7.2,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text56</Name>
-              <Page isRef="2" />
-              <Parent isRef="94" />
-              <Text>{Sum(DataBand2,Comparativa.pesoNeto)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="100" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text56>
-            <Text57 Ref="101" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>9.2,0.2,1.8,0.4</ClientRectangle>
+              <ClientRectangle>9.4,0.2,0.8,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,7,Bold</Font>
@@ -1431,10 +797,10 @@ rkJggg==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text57</Name>
               <Page isRef="2" />
-              <Parent isRef="94" />
+              <Parent isRef="46" />
               <Text>{Sum(DataBand2,Comparativa.palets1)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="102" type="NumberFormat" isKey="true">
+              <TextFormat Ref="49" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1443,10 +809,11 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text57>
-            <Text58 Ref="103" type="Text" isKey="true">
+            <Text58 Ref="50" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>12,0.2,2,0.4</ClientRectangle>
+              <ClientRectangle>10.6,0.2,1.8,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,7,Bold</Font>
@@ -1454,10 +821,10 @@ rkJggg==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text58</Name>
               <Page isRef="2" />
-              <Parent isRef="94" />
+              <Parent isRef="46" />
               <Text>{Sum(DataBand2,Comparativa.cajas1)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="104" type="NumberFormat" isKey="true">
+              <TextFormat Ref="51" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1466,10 +833,11 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text58>
-            <Text59 Ref="105" type="Text" isKey="true">
+            <Text59 Ref="52" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>15.4,0.2,2,0.4</ClientRectangle>
+              <ClientRectangle>12.8,0.2,2,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,7,Bold</Font>
@@ -1477,10 +845,10 @@ rkJggg==</ImageBytes>
               <Margins>0,0,0,0</Margins>
               <Name>Text59</Name>
               <Page isRef="2" />
-              <Parent isRef="94" />
+              <Parent isRef="46" />
               <Text>{Sum(DataBand2,Comparativa.pesoNeto1)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="106" type="NumberFormat" isKey="true">
+              <TextFormat Ref="53" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1489,70 +857,22 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text59>
-            <Text60 Ref="107" type="Text" isKey="true">
+            <Text26 Ref="54" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>18.8,0.2,1.6,0.4</ClientRectangle>
+              <ClientRectangle>15,0.2,2,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,7,Bold</Font>
-              <HideZeros>True</HideZeros>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text60</Name>
+              <Name>Text26</Name>
               <Page isRef="2" />
-              <Parent isRef="94" />
-              <Text>{Sum(DataBand2,Comparativa.palets2)}</Text>
+              <Parent isRef="46" />
+              <Text>{Sum(DataBand2,Comparativa.importe1)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="108" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text60>
-            <Text61 Ref="109" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>21.6,0.2,1.8,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text61</Name>
-              <Page isRef="2" />
-              <Parent isRef="94" />
-              <Text>{Sum(DataBand2,Comparativa.cajas2)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="110" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <DecimalSeparator>,</DecimalSeparator>
-                <GroupSeparator>.</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <State>DecimalDigits</State>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Totals</Type>
-            </Text61>
-            <Text62 Ref="111" type="Text" isKey="true">
-              <Brush>Transparent</Brush>
-              <ClientRectangle>24.6,0.2,2,0.4</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Expressions isList="true" count="0" />
-              <Font>Tahoma,7,Bold</Font>
-              <HideZeros>True</HideZeros>
-              <HorAlignment>Right</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text62</Name>
-              <Page isRef="2" />
-              <Parent isRef="94" />
-              <Text>{Sum(DataBand2,Comparativa.pesoNeto2)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="112" type="NumberFormat" isKey="true">
+              <TextFormat Ref="55" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1561,22 +881,117 @@ rkJggg==</ImageBytes>
                 <UseLocalSetting>False</UseLocalSetting>
               </TextFormat>
               <Type>Expression</Type>
-            </Text62>
-            <Text63 Ref="113" type="Text" isKey="true">
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text54 Ref="56" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>0.2,0.2,3,0.4</ClientRectangle>
+              <ClientRectangle>3,0.2,1.6,0.5</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
-              <Font>Tahoma,10,Bold</Font>
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text63</Name>
+              <Name>Text54</Name>
               <Page isRef="2" />
-              <Parent isRef="94" />
-              <Text>TOTAL:</Text>
+              <Parent isRef="46" />
+              <Text>{Sum(DataBand2,Comparativa.palets)}</Text>
               <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Bottom</VertAlignment>
-            </Text63>
+              <TextFormat Ref="57" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text54>
+            <Text55 Ref="58" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.8,0.2,1,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text55</Name>
+              <Page isRef="2" />
+              <Parent isRef="46" />
+              <Text>{Sum(DataBand2,Comparativa.cajas)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="59" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text55>
+            <Text56 Ref="60" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>6,0.2,1.4,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text56</Name>
+              <Page isRef="2" />
+              <Parent isRef="46" />
+              <Text>{Sum(DataBand2,Comparativa.pesoNeto)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="61" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text56>
+            <Text16 Ref="62" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.6,0.2,1.6,0.5</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="2" />
+              <Parent isRef="46" />
+              <Text>{Sum(DataBand2,Comparativa.importe)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text29 Ref="64" type="Text" isKey="true">
+              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.1,17.7,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="2" />
+              <Parent isRef="46" />
+              <TextBrush>Black</TextBrush>
+            </Text29>
           </Components>
           <Conditions isList="true" count="0" />
           <Expressions isList="true" count="0" />
@@ -1588,11 +1003,11 @@ rkJggg==</ImageBytes>
       <Conditions isList="true" count="0" />
       <Expressions isList="true" count="0" />
       <Guid>0fe59d8047454668837a2429dbdeec3d</Guid>
-      <Margins>1,1,1,1</Margins>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
       <Name>Page1</Name>
-      <Orientation>Landscape</Orientation>
-      <PageHeight>20</PageHeight>
-      <PageWidth>29.7</PageWidth>
+      <PageHeight>27.7</PageHeight>
+      <PageWidth>18.7</PageWidth>
+      <PaperSize>A4</PaperSize>
       <Report isRef="0" />
     </Page1>
   </Pages>
@@ -1607,10 +1022,10 @@ rkJggg==</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/23/2025 12:38:32 PM</ReportChanged>
+  <ReportChanged>11/19/2025 4:17:31 PM</ReportChanged>
   <ReportCreated>1/10/2025 2:58:38 PM</ReportCreated>
-  <ReportFile>E:\node_apps\ARIAGRO-WEB\git\ariagrowebcli\public\reports\comparativa.mrt</ReportFile>
-  <ReportGuid>d295d19d54474ad898060afe461daad5</ReportGuid>
+  <ReportFile>E:\node_apps\ARIAGRO-WEB\ariagroWeb_github\ariagrowebcli\public\reports\comparativa.mrt</ReportFile>
+  <ReportGuid>0319377228e6448f9cd7ffacd547dee3</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2021.3.6.0</ReportVersion>

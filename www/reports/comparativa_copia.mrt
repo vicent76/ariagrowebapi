@@ -1,0 +1,1642 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="0" />
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>8194d717316a496ba1e1e6153862470b</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="2" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="6">
+        <PageHeaderBand1 Ref="3" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,2.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <Text17 Ref="4" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>19.4,0.6,7.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,14</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="2" />
+              <Parent isRef="3" />
+              <Text>COMPARATIVA DE VENTAS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Image2 Ref="5" type="Image" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.6,0.2,2.4,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Guid>6bc9b02feaac41f0b05546d66c3db2f9</Guid>
+              <IconColor>68, 114, 196</IconColor>
+              <ImageBytes>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
+rkJggg==</ImageBytes>
+              <Margins>0,0,0,0</Margins>
+              <Name>Image2</Name>
+              <Page isRef="2" />
+              <Parent isRef="3" />
+              <Stretch>True</Stretch>
+            </Image2>
+            <Text66 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,1.6,10.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Comparativa.cliente,EqualTo,,,String,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text66</Name>
+              <Page isRef="2" />
+              <Parent isRef="3" />
+              <Text>Cliente selecionado: {Comparativa.cliente}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text66>
+            <Text68 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.6,2,10.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Comparativa.filtoVariedad,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text68</Name>
+              <Page isRef="2" />
+              <Parent isRef="3" />
+              <Text>Variedad Selecionada: {Comparativa.variedad}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text68>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="2" />
+          <Parent isRef="2" />
+        </PageHeaderBand1>
+        <PageFooterBand1 Ref="8" type="PageFooterBand" isKey="true">
+          <Border>Top;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,17.4,27.7,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text15 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>22.2,0,5.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="2" />
+              <Parent isRef="8" />
+              <Text>{PageNofM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>SystemVariables</Type>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text15>
+            <Text64 Ref="10" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0,5.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text64</Name>
+              <Page isRef="2" />
+              <Parent isRef="8" />
+              <Text>{Time}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>SystemVariables</Type>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text64>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>PageFooterBand1</Name>
+          <Page isRef="2" />
+          <Parent isRef="2" />
+        </PageFooterBand1>
+        <HeaderBand1 Ref="11" type="HeaderBand" isKey="true">
+          <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4,27.7,1</ClientRectangle>
+          <Components isList="true" count="13">
+            <Text18 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.6,3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,10</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>VARIEDAD</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text19 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0.6,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>PALETS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text19>
+            <Text20 Ref="14" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.2,0.6,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>CAJAS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text20>
+            <Text21 Ref="15" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7,0.6,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>KILOS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <Text27 Ref="16" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>PALETS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text27>
+            <Text22 Ref="17" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.8,0.6,2.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>CAJAS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text22>
+            <Text23 Ref="18" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.8,0.6,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>KILOS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text23>
+            <Text3 Ref="19" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0,5.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>{Comparativa.nomempre}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text13 Ref="20" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0,8.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>{Comparativa.nomempre1}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text13>
+            <Text25 Ref="21" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0.6,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>PALETS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text25>
+            <Text26 Ref="22" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.2,0.6,2.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>CAJAS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text26>
+            <Text28 Ref="23" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.2,0.6,2.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Arial,9</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>KILOS</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text28>
+            <Text32 Ref="24" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0,8.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="2" />
+              <Parent isRef="11" />
+              <Text>{Comparativa.nomempre2}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text32>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>HeaderBand1</Name>
+          <Page isRef="2" />
+          <Parent isRef="2" />
+        </HeaderBand1>
+        <GroupHeaderBand2 Ref="25" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,5.8,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="22">
+            <Text1 Ref="26" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Comparativa.producto}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text14 Ref="27" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.palets)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="28" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text14>
+            <Text16 Ref="29" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.2,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.cajas)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="30" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text16>
+            <Text24 Ref="31" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.2,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.pesoNeto)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="32" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text24>
+            <Text29 Ref="33" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.palets1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="34" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text29>
+            <Text30 Ref="35" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.2,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.cajas1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="36" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text30>
+            <Text31 Ref="37" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.6,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.pesoNeto1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="38" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text31>
+            <Text33 Ref="39" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.8,0.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.palets2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="40" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text33>
+            <Text34 Ref="41" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.6,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.cajas2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="42" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text34>
+            <Text35 Ref="43" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.8,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{Sum(GroupHeaderBand2,Comparativa.pesoNeto2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="44" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text35>
+            <Text42 Ref="45" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.2,0.2,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Comparativa.isPaletsZero1,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets1_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0029__x0020__x002F__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0020__x002A__x0020_100_x002C__x0020_2_x0029__x000D__x000A_,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text42</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{0}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text42>
+            <Text43 Ref="46" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.8,0.2,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,5,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text43</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>%</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="47" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text43>
+            <Text44 Ref="48" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.2,0.2,0.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Comparativa.isCajasZero1,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas1_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0029__x0020__x002F__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text44</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{0}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="49" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text44>
+            <Text45 Ref="50" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15,0.2,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,5,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text45</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>%</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="51" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text45>
+            <Text46 Ref="52" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.6,0.2,0.7,0.4</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>Comparativa.isPesoNetoZero1,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto1_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0029__x0020__x002F__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text46</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{0}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="53" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text46>
+            <Text47 Ref="54" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.2,0.2,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,5,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text47</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>%</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="55" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text47>
+            <Text48 Ref="56" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20.6,0.2,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="2">
+                <value>Comparativa.isPaletsZero2,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets2_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0029__x0020__x002F__x0020__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.palets_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text48</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{0}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="57" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text48>
+            <Text49 Ref="58" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.2,0.2,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,5,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text49</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>%</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="59" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text49>
+            <Text50 Ref="60" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.6,0.2,0.7,0.4</ClientRectangle>
+              <Conditions isList="true" count="2">
+                <value>Comparativa.isCajasZero2,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas2_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0029__x0020__x002F__x0020__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.cajas_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[0:0:0],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text50</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{0}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="61" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text50>
+            <Text51 Ref="62" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.2,0.2,0.4,0.3</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,5,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text51</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>%</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="63" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text51>
+            <Text52 Ref="64" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>26.8,0.2,0.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="2">
+                <value>Comparativa.isPesoNetoZero2,EqualTo,false,,Boolean,[0:0:0],Transparent,Tahoma_x002C_6_x002C_Bold,True,True,Round_x0028__x0028_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto2_x0029__x0020_-_x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0029__x0020__x002F__x0020__x0020_Sum_x0028_GroupHeaderBand2_x002C_Comparativa.pesoNeto_x0029__x0020__x0020__x002A__x0020_100_x002C__x0020_2_x0029_,,None</value>
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6,Bold</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text52</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>{0}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="65" type="NumberFormat" isKey="true">
+                <DecimalDigits>2</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern</State>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text52>
+            <Text53 Ref="66" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>27.4,0.2,0.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,5,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text53</Name>
+              <Page isRef="2" />
+              <Parent isRef="25" />
+              <Text>%</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="67" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text53>
+          </Components>
+          <Condition>{Comparativa.codprodu}</Condition>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>GroupHeaderBand2</Name>
+          <Page isRef="2" />
+          <Parent isRef="2" />
+        </GroupHeaderBand2>
+        <DataBand2 Ref="68" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,7.4,27.7,0.4</ClientRectangle>
+          <Components isList="true" count="16">
+            <Text2 Ref="69" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.6,0,2.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.variedad}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text4 Ref="70" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0,1.6,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.palets}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="71" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text4>
+            <Text5 Ref="72" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.2,0,1.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.cajas}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="73" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text5>
+            <Text6 Ref="74" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.2,0,1.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.pesoNeto}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="75" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text6>
+            <Text7 Ref="76" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0,1.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text> {Comparativa.palets1} </Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="77" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text7>
+            <Text8 Ref="78" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>14.2,0,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.porcentajeCajas1}%</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text9 Ref="79" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0,2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.pesoNeto1}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="80" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text10 Ref="81" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>11.2,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.porcentajePalets1}%</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text10>
+            <Text11 Ref="82" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12.2,0,1.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.cajas1}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="83" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text11>
+            <Text12 Ref="84" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>17.6,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.porcentajePesoNeto1}%</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text36 Ref="85" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.6,0,1.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text> {Comparativa.palets2} </Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="86" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text36>
+            <Text37 Ref="87" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>23.6,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.porcentajeCajas2}%</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text37>
+            <Text38 Ref="88" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.6,0,2,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.pesoNeto2}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="89" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
+            <Text39 Ref="90" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>20.6,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text39</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.porcentajePalets2}%</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text39>
+            <Text40 Ref="91" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.6,0,1.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text40</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.cajas2}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="92" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalSeparator, GroupSeparator, GroupSize, NegativePattern, NegativeInRed</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text40>
+            <Text41 Ref="93" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>26.8,0,0.8,0.3</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>condicion.tresEmpresas,EqualTo,false,,Boolean,[255:255:255],Transparent,Arial_x002C_8,False,False,,,None</value>
+              </Conditions>
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,6</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text41</Name>
+              <Page isRef="2" />
+              <Parent isRef="68" />
+              <Text>{Comparativa.porcentajePesoNeto2}%</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text41>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>Relación</DataRelationName>
+          <DataSourceName>Comparativa</DataSourceName>
+          <Expressions isList="true" count="0" />
+          <Filters isList="true" count="0" />
+          <Name>DataBand2</Name>
+          <Page isRef="2" />
+          <Parent isRef="2" />
+          <Sort isList="true" count="0" />
+        </DataBand2>
+        <FooterBand1 Ref="94" type="FooterBand" isKey="true">
+          <Border>Top;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,8.6,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="10">
+            <Text54 Ref="95" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.4,0.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text54</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.palets)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="96" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text54>
+            <Text55 Ref="97" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>5.2,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text55</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.cajas)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="98" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text55>
+            <Text56 Ref="99" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>7.2,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text56</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.pesoNeto)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="100" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text56>
+            <Text57 Ref="101" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>9.2,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text57</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.palets1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="102" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text57>
+            <Text58 Ref="103" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>12,0.2,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text58</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.cajas1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="104" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text58>
+            <Text59 Ref="105" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>15.4,0.2,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text59</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.pesoNeto1)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="106" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text59>
+            <Text60 Ref="107" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>18.8,0.2,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text60</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.palets2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="108" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text60>
+            <Text61 Ref="109" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>21.6,0.2,1.8,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text61</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.cajas2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="110" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+            </Text61>
+            <Text62 Ref="111" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>24.6,0.2,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,7,Bold</Font>
+              <HideZeros>True</HideZeros>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text62</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>{Sum(DataBand2,Comparativa.pesoNeto2)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="112" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <State>DecimalDigits</State>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+            </Text62>
+            <Text63 Ref="113" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0.2,0.2,3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Expressions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text63</Name>
+              <Page isRef="2" />
+              <Parent isRef="94" />
+              <Text>TOTAL:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Bottom</VertAlignment>
+            </Text63>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Expressions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="2" />
+          <Parent isRef="2" />
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Expressions isList="true" count="0" />
+      <Guid>0fe59d8047454668837a2429dbdeec3d</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>20</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <Report isRef="0" />
+    </Page1>
+  </Pages>
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>1/23/2025 12:38:32 PM</ReportChanged>
+  <ReportCreated>1/10/2025 2:58:38 PM</ReportCreated>
+  <ReportFile>E:\node_apps\ARIAGRO-WEB\ariagroWeb_github\ariagrowebcli\public\reports\comparativa_copia.mrt</ReportFile>
+  <ReportGuid>d295d19d54474ad898060afe461daad5</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2021.3.6.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>
