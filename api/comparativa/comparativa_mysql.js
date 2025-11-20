@@ -41,13 +41,13 @@ const clientes_mysql = {
                 sql += " SUM(av.pesoneto) AS pesoneto,";
                 sql += " SUM(fv.impornet) AS importe";
                 sql += " FROM albaran_variedad av";
-                sql += " LEFT JOIN albaran as a ON a.numalbar = av.numalbar";
-                sql += " LEFT JOIN variedades AS v ON v.codvarie = av.codvarie";
+                sql += " INNER JOIN albaran as a ON a.numalbar = av.numalbar";
+                sql += " INNER JOIN variedades AS v ON v.codvarie = av.codvarie";
                 sql += " LEFT JOIN productos AS p ON p.codprodu = v.codprodu";
                 sql += " LEFT JOIN clientes as c ON c.codclien = a.codclien";
                 sql += " LEFT JOIN facturas_variedad AS fv ON fv.numalbar = av.numalbar AND fv.numlinealbar = av.numlinea";
                 sql += " WHERE 1 = 1";
-                sql += " AND a.fechaalb >= '" + d.dFecha + "' AND a.fechaalb <= '" + d.hfecha + "'";
+                sql += " AND a.fechaalb >= '" + d.dFecha + "' AND a.fechaalb <= '" + d.hfecha + "' AND (v.codclase >= 1 AND v.codclase <= 1)";
                 // Filtros según los parámetros
                 if (data.variedad) {
                     sql += ` AND av.codvarie = ${data.variedad}`;
