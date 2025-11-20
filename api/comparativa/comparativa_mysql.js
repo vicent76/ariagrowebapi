@@ -43,9 +43,11 @@ const clientes_mysql = {
                 sql += " FROM albaran_variedad av";
                 sql += " INNER JOIN albaran as a ON a.numalbar = av.numalbar";
                 sql += " INNER JOIN variedades AS v ON v.codvarie = av.codvarie";
+                sql += " INNER JOIN destinos as d ON d.codclien = a.codclien and d.coddesti = a.coddesti";
+                sql += " INNER JOIN forfaits as f ON f.codforfait  = av.codforfait";
                 sql += " LEFT JOIN productos AS p ON p.codprodu = v.codprodu";
-                sql += " LEFT JOIN clientes as c ON c.codclien = a.codclien";
                 sql += " LEFT JOIN facturas_variedad AS fv ON fv.numalbar = av.numalbar AND fv.numlinealbar = av.numlinea";
+                sql += " LEFT JOIN clientes as c ON c.codclien = a.codclien";
                 sql += " WHERE 1 = 1";
                 sql += " AND a.fechaalb >= '" + d.dFecha + "' AND a.fechaalb <= '" + d.hfecha + "' AND (v.codclase >= 1 AND v.codclase <= 1)";
                 // Filtros según los parámetros
