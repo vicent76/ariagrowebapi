@@ -24,7 +24,7 @@
           <Components isList="true" count="5">
             <Text17 Ref="4" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>11,0.2,5.4,0.6</ClientRectangle>
+              <ClientRectangle>12.4,0.2,5.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,10,Bold</Font>
@@ -1122,10 +1122,10 @@ rkJggg==</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/25/2025 12:20:37 PM</ReportChanged>
+  <ReportChanged>11/25/2025 12:27:40 PM</ReportChanged>
   <ReportCreated>1/10/2025 2:58:38 PM</ReportCreated>
   <ReportFile>E:\node_apps\ARIAGRO-WEB\ariagroWeb_github\ariagrowebcli\public\reports\comparativa.mrt</ReportFile>
-  <ReportGuid>5c0c18b9d9154bd7b02734360a6de19b</ReportGuid>
+  <ReportGuid>a5aa4fa1c2d149a99e01b97cddbeb359</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2021.3.6.0</ReportVersion>
