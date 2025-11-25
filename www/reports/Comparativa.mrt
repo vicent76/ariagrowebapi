@@ -850,7 +850,7 @@ rkJggg==</ImageBytes>
             </Text58>
             <Text59 Ref="53" type="Text" isKey="true">
               <Brush>Transparent</Brush>
-              <ClientRectangle>13,0.3,1.6,0.3</ClientRectangle>
+              <ClientRectangle>13.2,0.3,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,7,Bold</Font>
@@ -907,14 +907,23 @@ rkJggg==</ImageBytes>
               <Name>Text65</Name>
               <Page isRef="2" />
               <Parent isRef="46" />
-              <Text>{IIF(Sum(DataBand2,Comparativa.palets) == 0, "", ((Sum(DataBand2,Comparativa.palets1) - Sum(DataBand2,Comparativa.palets)) / IIF(Sum(DataBand2,Comparativa.palets) == 0, 1, Sum(DataBand2,Comparativa.palets)) * 100).ToString("0.0") + "%")}</Text>
+              <Text>{IIF(Sum(DataBand2,Comparativa.palets) == 0, "", ((Sum(DataBand2,Comparativa.palets1) - Sum(DataBand2,Comparativa.palets)) / IIF(Sum(DataBand2,Comparativa.palets) == 0, 1, Sum(DataBand2,Comparativa.palets))) )}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="58" type="PercentageFormat" isKey="true">
+                <DecimalDigits>1</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>0</NegativePattern>
+                <PositivePattern>0</PositivePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, PositivePattern, NegativePattern, PercentageSymbol</State>
+                <Symbol>%</Symbol>
+              </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text65>
-            <Text66 Ref="58" type="Text" isKey="true">
+            <Text66 Ref="59" type="Text" isKey="true">
               <Brush>[242:242:242]</Brush>
-              <ClientRectangle>12.2,0.3,0.7,0.3</ClientRectangle>
+              <ClientRectangle>12.2,0.3,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,5,Bold</Font>
@@ -923,12 +932,21 @@ rkJggg==</ImageBytes>
               <Name>Text66</Name>
               <Page isRef="2" />
               <Parent isRef="46" />
-              <Text>{IIF(Sum(DataBand2,Comparativa.cajas) == 0, "", ((Sum(DataBand2,Comparativa.cajas1) - Sum(DataBand2,Comparativa.cajas)) / IIF(Sum(DataBand2,Comparativa.cajas) == 0, 1, Sum(DataBand2,Comparativa.cajas)) * 100).ToString("0.0") + "%")}</Text>
+              <Text>{IIF(Sum(DataBand2,Comparativa.cajas) == 0, "", ((Sum(DataBand2,Comparativa.cajas1) - Sum(DataBand2,Comparativa.cajas)) / IIF(Sum(DataBand2,Comparativa.cajas) == 0, 1, Sum(DataBand2,Comparativa.cajas))))}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="60" type="PercentageFormat" isKey="true">
+                <DecimalDigits>1</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>0</NegativePattern>
+                <PositivePattern>0</PositivePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, PositivePattern, NegativePattern, PercentageSymbol</State>
+                <Symbol>%</Symbol>
+              </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text66>
-            <Text67 Ref="59" type="Text" isKey="true">
+            <Text67 Ref="61" type="Text" isKey="true">
               <Brush>[242:242:242]</Brush>
               <ClientRectangle>14.6,0.3,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -939,14 +957,23 @@ rkJggg==</ImageBytes>
               <Name>Text67</Name>
               <Page isRef="2" />
               <Parent isRef="46" />
-              <Text>{IIF(Sum(DataBand2,Comparativa.pesoNeto) == 0, "", ((Sum(DataBand2,Comparativa.pesoNeto1) - Sum(DataBand2,Comparativa.pesoNeto)) / IIF(Sum(DataBand2,Comparativa.pesoNeto) == 0, 1, Sum(DataBand2,Comparativa.pesoNeto)) * 100).ToString("0.0") + "%")}</Text>
+              <Text>{IIF(Sum(DataBand2,Comparativa.pesoNeto) == 0, "", ((Sum(DataBand2,Comparativa.pesoNeto1) - Sum(DataBand2,Comparativa.pesoNeto)) / IIF(Sum(DataBand2,Comparativa.pesoNeto) == 0, 1, Sum(DataBand2,Comparativa.pesoNeto))))}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="62" type="PercentageFormat" isKey="true">
+                <DecimalDigits>1</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>0</NegativePattern>
+                <PositivePattern>0</PositivePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, PositivePattern, NegativePattern, PercentageSymbol</State>
+                <Symbol>%</Symbol>
+              </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text67>
-            <Text68 Ref="60" type="Text" isKey="true">
+            <Text68 Ref="63" type="Text" isKey="true">
               <Brush>[242:242:242]</Brush>
-              <ClientRectangle>17.2,0.3,0.7,0.3</ClientRectangle>
+              <ClientRectangle>17.2,0.3,0.9,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Expressions isList="true" count="0" />
               <Font>Tahoma,5,Bold</Font>
@@ -955,12 +982,21 @@ rkJggg==</ImageBytes>
               <Name>Text68</Name>
               <Page isRef="2" />
               <Parent isRef="46" />
-              <Text>{IIF(Sum(DataBand2,Comparativa.importe) == 0, "", ((Sum(DataBand2,Comparativa.importe1) - Sum(DataBand2,Comparativa.importe)) / IIF(Sum(DataBand2,Comparativa.importe) == 0, 1, Sum(DataBand2,Comparativa.importe)) * 100).ToString("0.0") + "%")}</Text>
+              <Text>{IIF(Sum(DataBand2,Comparativa.importe) == 0, "", ((Sum(DataBand2,Comparativa.importe1) - Sum(DataBand2,Comparativa.importe)) / IIF(Sum(DataBand2,Comparativa.importe) == 0, 1, Sum(DataBand2,Comparativa.importe))))}</Text>
               <TextBrush>Black</TextBrush>
+              <TextFormat Ref="64" type="PercentageFormat" isKey="true">
+                <DecimalDigits>1</DecimalDigits>
+                <DecimalSeparator>,</DecimalSeparator>
+                <GroupSeparator>.</GroupSeparator>
+                <NegativePattern>0</NegativePattern>
+                <PositivePattern>0</PositivePattern>
+                <State>DecimalDigits, DecimalSeparator, GroupSeparator, GroupSize, PositivePattern, NegativePattern, PercentageSymbol</State>
+                <Symbol>%</Symbol>
+              </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text68>
-            <Text54 Ref="61" type="Text" isKey="true">
+            <Text54 Ref="65" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>2.8,0.3,1.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -973,7 +1009,7 @@ rkJggg==</ImageBytes>
               <Parent isRef="46" />
               <Text>{Sum(DataBand2,Comparativa.palets)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="62" type="NumberFormat" isKey="true">
+              <TextFormat Ref="66" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -984,7 +1020,7 @@ rkJggg==</ImageBytes>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text54>
-            <Text55 Ref="63" type="Text" isKey="true">
+            <Text55 Ref="67" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>4.6,0.3,1,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -997,7 +1033,7 @@ rkJggg==</ImageBytes>
               <Parent isRef="46" />
               <Text>{Sum(DataBand2,Comparativa.cajas)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="64" type="NumberFormat" isKey="true">
+              <TextFormat Ref="68" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1008,7 +1044,7 @@ rkJggg==</ImageBytes>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text55>
-            <Text56 Ref="65" type="Text" isKey="true">
+            <Text56 Ref="69" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>5.8,0.3,1.4,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -1021,7 +1057,7 @@ rkJggg==</ImageBytes>
               <Parent isRef="46" />
               <Text>{Sum(DataBand2,Comparativa.pesoNeto)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="66" type="NumberFormat" isKey="true">
+              <TextFormat Ref="70" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1032,7 +1068,7 @@ rkJggg==</ImageBytes>
               <Type>Totals</Type>
               <VertAlignment>Center</VertAlignment>
             </Text56>
-            <Text16 Ref="67" type="Text" isKey="true">
+            <Text16 Ref="71" type="Text" isKey="true">
               <Brush>Transparent</Brush>
               <ClientRectangle>7.4,0.3,1.6,0.3</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -1045,7 +1081,7 @@ rkJggg==</ImageBytes>
               <Parent isRef="46" />
               <Text>{Sum(DataBand2,Comparativa.importe)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="68" type="NumberFormat" isKey="true">
+              <TextFormat Ref="72" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <DecimalSeparator>,</DecimalSeparator>
                 <GroupSeparator>.</GroupSeparator>
@@ -1086,10 +1122,10 @@ rkJggg==</ImageBytes>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>11/25/2025 11:50:29 AM</ReportChanged>
+  <ReportChanged>11/25/2025 12:20:37 PM</ReportChanged>
   <ReportCreated>1/10/2025 2:58:38 PM</ReportCreated>
   <ReportFile>E:\node_apps\ARIAGRO-WEB\ariagroWeb_github\ariagrowebcli\public\reports\comparativa.mrt</ReportFile>
-  <ReportGuid>0d0239c5149c48e8b6e490615fccc951</ReportGuid>
+  <ReportGuid>5c0c18b9d9154bd7b02734360a6de19b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2021.3.6.0</ReportVersion>
