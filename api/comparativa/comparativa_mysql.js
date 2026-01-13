@@ -70,7 +70,7 @@ const clientes_mysql = {
 
 
                 if (r.length > 0) {
-                    if (codvariesPrimera.length === 0) {
+                    /* if (codvariesPrimera.length === 0) {
                         // Si es la primera empresa, guardamos los codvarie
                         codvariesPrimera = r.map(row => row.codvarie);
                     } else {
@@ -82,7 +82,7 @@ const clientes_mysql = {
                         if (rFiltrada.length > 0) {
                             r = rFiltrada;
                         }
-                    }
+                    } */
 
                     // Guardamos los resultados para la empresa actual
                     obj.nomempre = '';
