@@ -11,44 +11,52 @@ const productos_mysql = {
             let cfg = await connector.base()
             conn = await mysql.createConnection(cfg)
             let sql = `
-                SELECT 
-            p.numpedid,
-            CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
-            (pv.numcajas *
-            pv.totpalet *
-            f.kiloscaj) AS kgs,
-            c.nomclien,
-            pv.totpalet,
-            pv.codpalet,
-            pa.nompalet,
-            pv.numcajas,
-            f.kiloscaj,
-            v.codvarie,
-            v.nomvarie,
-            CONCAT('(', f.codforfait,  ')',' ', f.nomconfe) AS confeccion,
-            ca.nomcalib,
-            p.refclien,
-            p.fechacar,
-            a.codtrans,
-            a.nomtrans,
-            a.teltrans,
-            p.matriveh,
-            p.matrirem,
-            al.numalbar,
-            COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga
-            FROM pedidos AS p
-            LEFT JOIN pedidos_variedad AS pv ON pv.numpedid = p.numpedid
-            LEFT JOIN pedidos_calibre AS pc ON pc.numpedid = pv.numpedid AND pc.numlinea = pv.numlinea
-            LEFT JOIN albaran AS al ON al.numpedid = p.numpedid
-            LEFT JOIN clientes AS c ON c.codclien = p.codclien
-            LEFT JOIN variedades AS v ON v.codvarie = pv.codvarie
-            LEFT JOIN agencias AS a ON a.codtrans = p.codtrans
-            LEFT JOIN forfaits AS f ON f.codforfait = pv.codforfait
-            LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
-            LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib
-            WHERE p.fechacar = '${fecha}'
-            ORDER BY p.fechaped, p.numpedid, c.nomclien
-            `
+               SELECT 
+                p.numpedid,
+                CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
+                (pv.numcajas * pv.totpalet * f.kiloscaj) AS kgs,
+
+                c.nomclien,
+                pv.totpalet,
+                pv.codpalet,
+                pa.nompalet,
+                pv.numcajas,
+                f.kiloscaj,
+                v.codvarie,
+                v.nomvarie,
+                CONCAT('(', f.codforfait,  ')',' ', f.nomconfe) AS confeccion,
+                ca.nomcalib,
+                p.refclien,
+                p.fechacar,
+                a.codtrans,
+                a.nomtrans,
+                a.teltrans,
+                p.matriveh,
+                p.matrirem,
+                al.numalbar,
+                COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga,
+                
+
+                IF (COALESCE(po.observaciones,'')<>'',
+                IF(SUM(COALESCE(po.usu1,0))=0,1,2)
+                , 0) estadopalet
+
+                FROM pedidos AS p
+                LEFT JOIN pedidos_variedad AS pv ON pv.numpedid = p.numpedid
+                LEFT JOIN pedidos_calibre AS pc ON pc.numpedid = pv.numpedid AND pc.numlinea = pv.numlinea
+                LEFT JOIN pedidos_variedad_observa AS po ON po.numpedid = pv.numpedid AND po.numlinea = pv.numlinea
+
+                LEFT JOIN albaran AS al ON al.numpedid = p.numpedid
+                LEFT JOIN clientes AS c ON c.codclien = p.codclien
+                LEFT JOIN variedades AS v ON v.codvarie = pv.codvarie
+                LEFT JOIN agencias AS a ON a.codtrans = p.codtrans
+                LEFT JOIN forfaits AS f ON f.codforfait = pv.codforfait 
+                LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
+                LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib 
+                WHERE p.fechacar = '${fecha}'
+                GROUP BY p.numpedid,pv.numlinea
+                ORDER BY p.fechaped, p.numpedid, c.nomclien
+            `;
             const [result] = await conn.query(sql)
             await conn.end();
             if (result.length > 0) {
