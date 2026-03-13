@@ -13,6 +13,7 @@ const productos_mysql = {
             let sql = `
                SELECT 
                 p.numpedid,
+                pv.numlinea,
                 CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
                 (pv.numcajas * pv.totpalet * f.kiloscaj) AS kgs,
 
@@ -38,7 +39,8 @@ const productos_mysql = {
                 
 
                 IF (COALESCE(po.observaciones,'')<>'',
-                IF(SUM(COALESCE(po.usu1,0))=0,1,2)
+
+                IF(SUM(COALESCE(po.usu3,0))=0,1,2)
                 , 0) estadopalet
 
                 FROM pedidos AS p
@@ -65,6 +67,26 @@ const productos_mysql = {
                     r.horacarga = r.horacarga.toString();
                 }
             }
+            return result
+        } catch (error) {
+            if (conn) {
+                await conn.end()
+            }
+            throw (error)
+        }
+    },
+
+      pedidos_observa: async (numpedid, numlinea) => {
+        let conn = undefined
+        try {
+            let cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+            let sql = `
+                SELECT * FROM pedidos_variedad_observa 
+                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
+            `;
+            const [result] = await conn.query(sql)
+            await conn.end();
             return result
         } catch (error) {
             if (conn) {

@@ -22,9 +22,9 @@ router.get('/porfecha/:fecha', async (req, res, next) => {
 });
 
 
-router.get('/:codvarie', async (req, res, next) => {
+router.get('/observaciones/:numpedid/:numlinea', async (req, res, next) => {
     try {
-        let result = await pedidos_mysql.productos_variedad(req.params.codvarie)
+        let result = await pedidos_mysql.pedidos_observa(req.params.numpedid, req.params.numlinea)
         return res.json(result)
     } catch (error) {
         next(error)
