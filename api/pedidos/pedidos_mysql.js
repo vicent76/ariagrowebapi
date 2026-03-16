@@ -5,7 +5,7 @@ const productos_mysql = {
     test: async () => {
         return 'PRODUCTOS TEST'
     },
-    pedidos_por_fecha: async (fecha) => {
+    pedidos_por_fecha: async (fecha, mensAriagroPedidos) => {
         let conn = undefined
         try {
             let cfg = await connector.base()
@@ -40,7 +40,7 @@ const productos_mysql = {
 
                 IF (COALESCE(po.observaciones,'')<>'',
 
-                IF(SUM(COALESCE(po.usu3,0))=0,1,2)
+                IF(SUM(COALESCE(po.usu${mensAriagroPedidos},0))=0,1,2)
                 , 0) estadopalet
 
                 FROM pedidos AS p

@@ -12,9 +12,9 @@ router.get('/test', async (req, res, next) => {
     }
 });
 
-router.get('/porfecha/:fecha', async (req, res, next) => {
+router.get('/porfecha/:fecha/:mensAriagroPedidos', async (req, res, next) => {
     try {
-        let result = await pedidos_mysql.pedidos_por_fecha(req.params.fecha)
+        let result = await pedidos_mysql.pedidos_por_fecha(req.params.fecha, req.params.mensAriagroPedidos)
         return res.json(result)
     } catch (error) {
         next(error)
