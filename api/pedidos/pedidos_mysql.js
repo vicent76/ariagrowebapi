@@ -11,42 +11,51 @@ const productos_mysql = {
             let cfg = await connector.base()
             conn = await mysql.createConnection(cfg)
             let sql = `
-               SELECT 
-                p.numpedid,
-                pv.numlinea,
-                CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
-                (pv.numcajas * pv.totpalet * f.kiloscaj) AS kgs,
+              SELECT 
+                    p.numpedid,
+                    pv.numlinea,
+                    CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
+                    (pv.numcajas * pv.totpalet * f.kiloscaj) AS kgs,
+                    c.nomclien,
+                    pv.totpalet,
+                    pv.codpalet,
+                    pa.nompalet,
+                    pv.numcajas,
+                    f.kiloscaj,
+                    v.codvarie,
+                    v.nomvarie,
+                    CONCAT('(', f.codforfait,  ')',' ', f.nomconfe) AS confeccion,
+                    ca.nomcalib,
+                    p.refclien,
+                    p.fechacar,
+                    a.codtrans,
+                    a.nomtrans,
+                    a.teltrans,
+                    p.matriveh,
+                    p.matrirem,
+                    al.numalbar,
+                    COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga,
 
-                c.nomclien,
-                pv.totpalet,
-                pv.codpalet,
-                pa.nompalet,
-                pv.numcajas,
-                f.kiloscaj,
-                v.codvarie,
-                v.nomvarie,
-                CONCAT('(', f.codforfait,  ')',' ', f.nomconfe) AS confeccion,
-                ca.nomcalib,
-                p.refclien,
-                p.fechacar,
-                a.codtrans,
-                a.nomtrans,
-                a.teltrans,
-                p.matriveh,
-                p.matrirem,
-                al.numalbar,
-                COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga,
-                
-
-                IF (COALESCE(po.observaciones,'')<>'',
-
-                IF(SUM(COALESCE(po.usu${mensAriagroPedidos},0))=0,1,2)
-                , 0) estadopalet
+                    -- Subquery para detectar si hay alguna observación no leída para este usuario
+                    COALESCE(obs.estadopalet, 0) AS estadopalet
 
                 FROM pedidos AS p
                 LEFT JOIN pedidos_variedad AS pv ON pv.numpedid = p.numpedid
                 LEFT JOIN pedidos_calibre AS pc ON pc.numpedid = pv.numpedid AND pc.numlinea = pv.numlinea
-                LEFT JOIN pedidos_variedad_observa AS po ON po.numpedid = pv.numpedid AND po.numlinea = pv.numlinea
+
+                -- Subquery: solo un registro por línea, sin duplicar
+                LEFT JOIN (
+                    SELECT 
+                        po.numpedid,
+                        po.numlinea,
+                        CASE 
+                            WHEN COUNT(*) = 0 THEN 0                              -- Sin observaciones
+                            WHEN SUM(COALESCE(po.usu${mensAriagroPedidos},0)) < COUNT(*) THEN 1  -- Alguna no leída
+                            ELSE 2                                                -- Todas leídas
+                        END AS estadopalet
+                    FROM pedidos_variedad_observa po
+                    GROUP BY po.numpedid, po.numlinea
+                ) AS obs ON obs.numpedid = pv.numpedid AND obs.numlinea = pv.numlinea
 
                 LEFT JOIN albaran AS al ON al.numpedid = p.numpedid
                 LEFT JOIN clientes AS c ON c.codclien = p.codclien
@@ -55,9 +64,11 @@ const productos_mysql = {
                 LEFT JOIN forfaits AS f ON f.codforfait = pv.codforfait 
                 LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
                 LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib 
+
                 WHERE p.fechacar = '${fecha}'
-                GROUP BY p.numpedid,pv.numlinea
-                ORDER BY p.fechaped, p.numpedid, c.nomclien
+
+                GROUP BY p.numpedid, pv.numlinea
+                ORDER BY p.fechaped, p.numpedid, c.nomclien;
             `;
             const [result] = await conn.query(sql)
             await conn.end();
@@ -76,7 +87,7 @@ const productos_mysql = {
         }
     },
 
-      pedidos_observa: async (numpedid, numlinea) => {
+    pedidos_observa: async (numpedid, numlinea) => {
         let conn = undefined
         try {
             let cfg = await connector.base()
@@ -94,7 +105,29 @@ const productos_mysql = {
             }
             throw (error)
         }
+    },
+
+    put_pedidos_observa_usu: async (numpedid, numlinea, mensAriagroPedidos) => {
+        let conn = undefined
+        try {
+            let cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+            let sql = `
+                UPDATE pedidos_variedad_observa 
+                SET usu${mensAriagroPedidos} = 1
+                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
+            `;
+            const [result] = await conn.query(sql)
+            await conn.end();
+            return result
+        } catch (error) {
+            if (conn) {
+                await conn.end()
+            }
+            throw (error)
+        }
     }
 }
+
 
 module.exports = productos_mysql

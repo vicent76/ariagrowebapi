@@ -31,4 +31,13 @@ router.get('/observaciones/:numpedid/:numlinea', async (req, res, next) => {
     }
 });
 
+router.put('/observaciones/:numpedid/:numlinea/:mensAriagroPedidos', async (req, res, next) => {
+    try {
+        let result = await pedidos_mysql.put_pedidos_observa_usu(req.params.numpedid, req.params.numlinea, req.params.mensAriagroPedidos)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+});
+
 module.exports = router
