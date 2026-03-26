@@ -10,7 +10,7 @@ const usuarios_mysql = {
         try {
             let cfg = await connector.usu()
             conn = await mysql.createConnection(cfg)
-            let sql = `select * from usuarios where login = '${data.usuario}' and passwordpropio = '${data.password}' AND nivelariagro = 0`
+            let sql = `select * from usuarios where login = '${data.usuario}' and passwordpropio = '${data.password}' AND nivelariagro >= 0`
             const [r] = await conn.query(sql)
             await conn.end()
             if (r.length == 0) {

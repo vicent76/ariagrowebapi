@@ -64,8 +64,8 @@ const productos_mysql = {
                 LEFT JOIN forfaits AS f ON f.codforfait = pv.codforfait 
                 LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
                 LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib 
-
                 WHERE p.fechacar = '${fecha}'
+               /*  AND al.numalbar IS NULL */
 
                 GROUP BY p.numpedid, pv.numlinea
                 ORDER BY p.fechaped, p.numpedid, c.nomclien;
@@ -74,8 +74,8 @@ const productos_mysql = {
             await conn.end();
             if (result.length > 0) {
                 for (let r of result) {
-                    r.codigo = r.codigo.toString();
-                    r.horacarga = r.horacarga.toString();
+                    if (r.codigo) r.codigo = r.codigo.toString();
+                    if (r.horacarga) r.horacarga = r.horacarga.toString();
                 }
             }
             return result
