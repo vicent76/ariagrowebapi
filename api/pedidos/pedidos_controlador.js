@@ -31,6 +31,15 @@ router.get('/observaciones/:numpedid/:numlinea', async (req, res, next) => {
     }
 });
 
+router.put('/:numpedid/:numlinea', async (req, res, next) => {
+    try {
+        let result = await pedidos_mysql.put_pedidos_variedad(req.params.numpedid, req.params.numlinea, req.body.data)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+});
+
 router.put('/observaciones/:numpedid/:numlinea/:mensAriagroPedidos', async (req, res, next) => {
     try {
         let result = await pedidos_mysql.put_pedidos_observa_usu(req.params.numpedid, req.params.numlinea, req.params.mensAriagroPedidos)
@@ -39,5 +48,7 @@ router.put('/observaciones/:numpedid/:numlinea/:mensAriagroPedidos', async (req,
         next(error)
     }
 });
+
+
 
 module.exports = router

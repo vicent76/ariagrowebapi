@@ -6,7 +6,8 @@ const productos_mysql = {
         return 'PRODUCTOS TEST'
     },
     pedidos_por_fecha: async (fecha, mensAriagroPedidos) => {
-        let conn = undefined
+        let conn = undefined;
+       
         try {
             let cfg = await connector.base()
             conn = await mysql.createConnection(cfg)
@@ -34,6 +35,7 @@ const productos_mysql = {
                     p.matriveh,
                     p.matrirem,
                     al.numalbar,
+                    COALESCE(pv.finalizado, 0) AS finalizado,
                     COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga,
 
                     -- Subquery para detectar si hay alguna observación no leída para este usuario
@@ -83,7 +85,15 @@ const productos_mysql = {
             if (conn) {
                 await conn.end()
             }
-            throw (error)
+            let mensaje = error?.message || '';
+
+            const regex = /Unknown column '.*' in 'field list'/;
+
+            if (regex.test(mensaje)) {
+                error.message = 'El usuario no tiene un identificador de mensajes correcto, consulte con administración.';
+            }
+
+            throw error;
         }
     },
 
@@ -117,6 +127,28 @@ const productos_mysql = {
                 SET usu${mensAriagroPedidos} = 1
                 WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
             `;
+            const [result] = await conn.query(sql)
+            await conn.end();
+            return result
+        } catch (error) {
+            if (conn) {
+                await conn.end()
+            }
+            throw (error)
+        }
+    },
+
+    put_pedidos_variedad: async (numpedid, numlinea, datos) => {
+        let conn = undefined
+        try {
+            let cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+            let sql = `
+                UPDATE pedidos_variedad 
+                SET ?
+                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
+            `;
+            sql = mysql.format(sql, datos)
             const [result] = await conn.query(sql)
             await conn.end();
             return result
