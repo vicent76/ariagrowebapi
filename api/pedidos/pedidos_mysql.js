@@ -67,7 +67,7 @@ const productos_mysql = {
                 LEFT JOIN confpale AS pa ON pa.codpalet = pv.codpalet
                 LEFT JOIN calibres AS ca ON ca.codvarie = pc.codvarie AND ca.codcalib = pc.codcalib 
                 WHERE p.fechacar = '${fecha}'
-               /*  AND al.numalbar IS NULL */
+                AND al.numalbar IS NULL
 
                 GROUP BY p.numpedid, pv.numlinea
                 ORDER BY p.fechaped, p.numpedid, c.nomclien;
