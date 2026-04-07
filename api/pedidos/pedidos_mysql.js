@@ -7,7 +7,7 @@ const productos_mysql = {
     },
     pedidos_por_fecha: async (fecha, mensAriagroPedidos) => {
         let conn = undefined;
-       
+
         try {
             let cfg = await connector.base()
             conn = await mysql.createConnection(cfg)
@@ -16,13 +16,13 @@ const productos_mysql = {
                     p.numpedid,
                     pv.numlinea,
                     CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
-                    (pv.numcajas * pv.totpalet * f.kiloscaj) AS kgs,
+                    (COALESCE(pv.numcajas, 0) * COALESCE(pv.totpalet, 0) * COALESCE(f.kiloscaj, 0)) AS kgs,
                     c.nomclien,
-                    pv.totpalet,
+                    COALESCE(pv.totpalet, 0) AS totpalet,
                     pv.codpalet,
                     pa.nompalet,
-                    pv.numcajas,
-                    f.kiloscaj,
+                    COALESCE(pv.numcajas, 0) AS numcajas,
+                    COALESCE(f.kiloscaj, 0) AS kiloscaj,    
                     v.codvarie,
                     v.nomvarie,
                     CONCAT('(', f.codforfait,  ')',' ', f.nomconfe) AS confeccion,
@@ -70,14 +70,23 @@ const productos_mysql = {
                 AND al.numalbar IS NULL
 
                 GROUP BY p.numpedid, pv.numlinea
-                ORDER BY p.fechaped, p.numpedid, c.nomclien;
+                ORDER BY p.fechaped, p.numpedid, pv.numlinea, c.nomclien;
             `;
             const [result] = await conn.query(sql)
             await conn.end();
+            const toNumber = (v) => {
+                const n = Number(v);
+                return isNaN(n) ? 0 : n;
+            };
+
             if (result.length > 0) {
                 for (let r of result) {
                     if (r.codigo) r.codigo = r.codigo.toString();
                     if (r.horacarga) r.horacarga = r.horacarga.toString();
+                    r.kgs = toNumber(r.kgs);
+                    r.numcajas = toNumber(r.numcajas);
+                    r.totpalet = toNumber(r.totpalet);
+                    r.kiloscaj = toNumber(r.kiloscaj);
                 }
             }
             return result
