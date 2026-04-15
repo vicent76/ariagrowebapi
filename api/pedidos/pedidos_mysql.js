@@ -16,9 +16,9 @@ const productos_mysql = {
                     p.numpedid,
                     pv.numlinea,
                     CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
-                    (COALESCE(pv.numcajas, 0) * COALESCE(pv.totpalet, 0) * COALESCE(f.kiloscaj, 0)) AS kgs,
+                    (COALESCE(pv.numcajas, 0) * IF(COALESCE(pv.totpalet, 1) = 0, 1, COALESCE(pv.totpalet, 1)) * COALESCE(f.kiloscaj, 0)) AS kgs,
                     c.nomclien,
-                    COALESCE(pv.totpalet, 0) AS totpalet,
+                    IF(COALESCE(pv.totpalet, 1) = 0, 1, COALESCE(pv.totpalet, 1)) AS totpalet,
                     pv.codpalet,
                     pa.nompalet,
                     COALESCE(pv.numcajas, 0) AS numcajas,
@@ -37,9 +37,8 @@ const productos_mysql = {
                     al.numalbar,
                     COALESCE(pv.finalizado, 0) AS finalizado,
                     COALESCE(DATE_FORMAT(p.horacarga, '%H:%i'), '') AS horacarga,
-
-                    -- Subquery para detectar si hay alguna observación no leída para este usuario
-                    COALESCE(obs.estadopalet, 0) AS estadopalet
+                    COALESCE(obs.estadopalet, 0) AS estadopalet,
+                    COALESCE(obs.hay_nueva, 0) AS hay_nueva
 
                 FROM pedidos AS p
                 LEFT JOIN pedidos_variedad AS pv ON pv.numpedid = p.numpedid
@@ -51,13 +50,22 @@ const productos_mysql = {
                         po.numpedid,
                         po.numlinea,
                         CASE 
-                            WHEN COUNT(*) = 0 THEN 0                              -- Sin observaciones
-                            WHEN SUM(COALESCE(po.usu${mensAriagroPedidos},0)) < COUNT(*) THEN 1  -- Alguna no leída
-                            ELSE 2                                                -- Todas leídas
-                        END AS estadopalet
-                    FROM pedidos_variedad_observa po
-                    GROUP BY po.numpedid, po.numlinea
-                ) AS obs ON obs.numpedid = pv.numpedid AND obs.numlinea = pv.numlinea
+                            WHEN COUNT(*) = 0 THEN 0
+                            WHEN SUM(COALESCE(po.usu${mensAriagroPedidos},0)) < COUNT(*) THEN 1
+                            ELSE 2
+                        END AS estadopalet,
+
+                        -- ✔ NUEVA y NO leída por el usuario actual
+                        MAX(
+                            po.observaciones = '[NUEVA]' 
+                            AND COALESCE(po.usu${mensAriagroPedidos},0) = 0
+                        ) AS hay_nueva
+
+                            FROM pedidos_variedad_observa po
+                            GROUP BY po.numpedid, po.numlinea
+                        ) AS obs
+                        ON obs.numpedid = pv.numpedid 
+                        AND obs.numlinea = pv.numlinea
 
                 LEFT JOIN albaran AS al ON al.numpedid = p.numpedid
                 LEFT JOIN clientes AS c ON c.codclien = p.codclien
