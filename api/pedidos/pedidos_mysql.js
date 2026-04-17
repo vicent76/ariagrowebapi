@@ -18,7 +18,8 @@ const productos_mysql = {
                     CONCAT(pv.numpedid, '-', pv.numlinea) AS codigo,
                     (COALESCE(pv.numcajas, 0) * IF(COALESCE(pv.totpalet, 1) = 0, 1, COALESCE(pv.totpalet, 1)) * COALESCE(f.kiloscaj, 0)) AS kgs,
                     c.nomclien,
-                    IF(COALESCE(pv.totpalet, 1) = 0, 1, COALESCE(pv.totpalet, 1)) AS totpalet,
+                    COALESCE(pv.totpalet, 0)  AS totpalet,
+                    COALESCE(pv.totpalet, 0)  AS totpaletvista,
                     pv.codpalet,
                     pa.nompalet,
                     COALESCE(pv.numcajas, 0) AS numcajas,
@@ -57,7 +58,7 @@ const productos_mysql = {
 
                         -- ✔ NUEVA y NO leída por el usuario actual
                         MAX(
-                            po.observaciones = '[NUEVA]' 
+                            po.observaciones = '[NUEVO]' 
                             AND COALESCE(po.usu${mensAriagroPedidos},0) = 0
                         ) AS hay_nueva
 
@@ -80,21 +81,41 @@ const productos_mysql = {
                 GROUP BY p.numpedid, pv.numlinea
                 ORDER BY p.fechaped, p.numpedid, pv.numlinea, c.nomclien;
             `;
-            const [result] = await conn.query(sql)
+            let [result] = await conn.query(sql)
             await conn.end();
             const toNumber = (v) => {
                 const n = Number(v);
                 return isNaN(n) ? 0 : n;
             };
+            let antpedid = null;
+            let encontrado = false;
+            let contador = 0;
 
             if (result.length > 0) {
-                for (let r of result) {
-                    if (r.codigo) r.codigo = r.codigo.toString();
-                    if (r.horacarga) r.horacarga = r.horacarga.toString();
-                    r.kgs = toNumber(r.kgs);
-                    r.numcajas = toNumber(r.numcajas);
-                    r.totpalet = toNumber(r.totpalet);
-                    r.kiloscaj = toNumber(r.kiloscaj);
+                for (let i = 0; i < result.length; i++) {
+                    if (result[i].codigo) result[i].codigo = result[i].codigo.toString();
+                    if (result[i].horacarga) result[i].horacarga = result[i].horacarga.toString();
+                    result[i].kgs = toNumber(result[i].kgs);
+                    result[i].numcajas = toNumber(result[i].numcajas);
+                    result[i].totpalet = toNumber(result[i].totpalet);
+                    result[i].kiloscaj = toNumber(result[i].kiloscaj);
+
+                    // 🔽 NUEVA LÓGICA
+                    let actual = result[i];
+                    let anterior = i > 0 ? result[i - 1] : null;
+                    let siguiente = i < result.length - 1 ? result[i + 1] : null;
+
+                    let mismoPedidoAnterior = anterior && anterior.numpedid === actual.numpedid;
+                    let mismoPedidoSiguiente = siguiente && siguiente.numpedid === actual.numpedid;
+
+                    if (
+                        actual.totpaletvista === 0 &&
+                        siguiente && siguiente.totpaletvista === 0 &&
+                        mismoPedidoSiguiente &&
+                        (!mismoPedidoAnterior || anterior.totpaletvista !== 0)
+                    ) {
+                        actual.totpaletvista = 1;
+                    }
                 }
             }
             return result
