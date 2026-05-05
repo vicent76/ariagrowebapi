@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
         araw_mysql_user: process.env.ARAW_MYSQL_USER,
         araw_mysql_password: process.env.ARAW_MYSQL_PASSWORD,
         araw_mysql_database: process.env.ARAW_MYSQL_DATABASE,
-        argw_mysql_database_usuarios: process.env.ARGW_MYSQL_DATABASE_USUARIOS,
+        araw_mysql_database_usuarios: process.env.ARAW_MYSQL_DATABASE_USUARIOS,
 
         araw_comparativa: process.env.ARAW_COMPARATIVA,
         araw_pedidos: process.env.ARAW_PEDIDOS,
