@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
 
         araw_comparativa: process.env.ARAW_COMPARATIVA,
         araw_pedidos: process.env.ARAW_PEDIDOS,
+        araw_campos: process.env.ARAW_CAMPOS,
     };
 
     res.json(entorno);
