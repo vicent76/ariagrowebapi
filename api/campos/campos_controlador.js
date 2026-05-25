@@ -12,7 +12,7 @@ router.get('/test', async (req, res, next) => {
     }
 });
 
-router.get('/socio/:/:codsocio', async (req, res, next) => {
+router.get('/socio/:codsocio', async (req, res, next) => {
     try {
         let result = await campos_mysql.campos_socio(req.params.codsocio)
         return res.json(result)

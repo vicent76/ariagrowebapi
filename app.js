@@ -26,8 +26,10 @@ const appServer = {
         app.use('/api/productos', require('./api/productos/productos_controlador'));
         app.use('/api/variedades', require('./api/variedades/variedades_controlador'));
         app.use('/api/clientes', require('./api/clientes/clientes_controlador'));
+        app.use('/api/socios', require('./api/socios/socios_controlador'));
         app.use('/api/comparativa', require('./api/comparativa/comparativa_controlador'));
         app.use('/api/pedidos', require('./api/pedidos/pedidos_controlador'));
+        app.use('/api/campos', require('./api/campos/campos_controlador'));
         app.use((req, res, next) => {
             res.sendFile(path.join(__dirname, "www", "index.html"));
         });

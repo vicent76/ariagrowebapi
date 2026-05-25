@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise')
 const connector = require('../../lib/conector_mysql')
 
-const productos_mysql = {
+const campos_mysql = {
     test: async () => {
         return 'CAMPOS TEST'
     },
@@ -13,13 +13,19 @@ const productos_mysql = {
             conn = await mysql.createConnection(cfg)
             let sql = `    
                 SELECT
-                s.nomsocio,
+               s.nomsocio,
+                c.codcampo,
+                c.nrocampo,
                 c.codsocio,
                 c.poligono, 
                 c.parcela, 
+                c.recintos,
                 c.supsigpa,
+                pu.codpobla,
+                pu.codsigpa,
                 c.latitud,
                 c.longitud,
+                c.supsigpa,
                 v.nomvarie,
                 p.nomparti,
                 pu.despobla AS nombrepueblo
@@ -149,4 +155,4 @@ const productos_mysql = {
 }
 
 
-module.exports = productos_mysql
+module.exports = campos_mysql
