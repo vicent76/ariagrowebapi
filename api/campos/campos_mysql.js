@@ -90,66 +90,21 @@ const campos_mysql = {
         }
     },
 
-    pedidos_observa: async (numpedid, numlinea) => {
-        let conn = undefined
+    get_coordenadas: async (pr, mu, ag, zo, po, pa, re) => {
         try {
-            let cfg = await connector.base()
-            conn = await mysql.createConnection(cfg)
-            let sql = `
-                SELECT * FROM pedidos_variedad_observa 
-                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
-            `;
-            const [result] = await conn.query(sql)
-            await conn.end();
-            return result
-        } catch (error) {
-            if (conn) {
-                await conn.end()
-            }
-            throw (error)
-        }
-    },
+            const url = `https://sigpac-hubcloud.es/servicioconsultassigpac/query/recincentroid/${pr}/${mu}/${ag}/${zo}/${po}/${pa}/${re}.json`
+            const response = await fetch(url)
 
-    put_pedidos_observa_usu: async (numpedid, numlinea, mensAriagroPedidos) => {
-        let conn = undefined
-        try {
-            let cfg = await connector.base()
-            conn = await mysql.createConnection(cfg)
-            let sql = `
-                UPDATE pedidos_variedad_observa 
-                SET usu${mensAriagroPedidos} = 1
-                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
-            `;
-            const [result] = await conn.query(sql)
-            await conn.end();
-            return result
-        } catch (error) {
-            if (conn) {
-                await conn.end()
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`)
             }
-            throw (error)
-        }
-    },
 
-    put_pedidos_variedad: async (numpedid, numlinea, datos) => {
-        let conn = undefined
-        try {
-            let cfg = await connector.base()
-            conn = await mysql.createConnection(cfg)
-            let sql = `
-                UPDATE pedidos_variedad 
-                SET ?
-                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
-            `;
-            sql = mysql.format(sql, datos)
-            const [result] = await conn.query(sql)
-            await conn.end();
-            return result
+            const data = await response.json()
+
+            console.log(data)
+            return data
         } catch (error) {
-            if (conn) {
-                await conn.end()
-            }
-            throw (error)
+            console.error('Error consultando SIGPAC:', error.message)
         }
     }
 }
