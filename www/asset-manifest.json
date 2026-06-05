@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.6a56d9f2.css",
-    "main.js": "/static/js/main.b8e76e57.js",
+    "main.js": "/static/js/main.cb5bf52f.js",
     "static/js/453.241c1e1c.chunk.js": "/static/js/453.241c1e1c.chunk.js",
     "static/media/campo-naranjos.png": "/static/media/campo-naranjos.752527f75d5341525490.png",
     "static/media/ariagro-web.png": "/static/media/ariagro-web.432216e3eddcc1ce0160.png",
     "index.html": "/index.html",
     "main.6a56d9f2.css.map": "/static/css/main.6a56d9f2.css.map",
-    "main.b8e76e57.js.map": "/static/js/main.b8e76e57.js.map",
+    "main.cb5bf52f.js.map": "/static/js/main.cb5bf52f.js.map",
     "453.241c1e1c.chunk.js.map": "/static/js/453.241c1e1c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6a56d9f2.css",
-    "static/js/main.b8e76e57.js"
+    "static/js/main.cb5bf52f.js"
   ]
 }
