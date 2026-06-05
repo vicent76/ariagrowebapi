@@ -1,5 +1,6 @@
 const mysql = require('mysql2/promise')
 const connector = require('../../lib/conector_mysql')
+const fetch = require('node-fetch')
 
 const campos_mysql = {
     test: async () => {
