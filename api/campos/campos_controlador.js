@@ -12,7 +12,7 @@ router.get('/test', async (req, res, next) => {
     }
 });
 
-router.get('/socio/:/:codsocio', async (req, res, next) => {
+router.get('/socio/:codsocio', async (req, res, next) => {
     try {
         let result = await campos_mysql.campos_socio(req.params.codsocio)
         return res.json(result)
@@ -21,34 +21,32 @@ router.get('/socio/:/:codsocio', async (req, res, next) => {
     }
 });
 
-
-router.get('/observaciones/:numpedid/:numlinea', async (req, res, next) => {
+router.get('/socio/clasificacion/:codcampo', async (req, res, next) => {
     try {
-        let result = await campos_mysql.pedidos_observa(req.params.numpedid, req.params.numlinea)
+        let result = await campos_mysql.campo_clasificacion(req.params.codcampo)
         return res.json(result)
     } catch (error) {
         next(error)
     }
 });
 
-router.put('/:numpedid/:numlinea', async (req, res, next) => {
+
+
+router.get('/coordenadas/:pr/:mu/:ag/:zo/:po/:pa/:re', async (req, res, next) => {
     try {
-        let result = await campos_mysql.put_pedidos_variedad(req.params.numpedid, req.params.numlinea, req.body.data)
+        let pr = req.params.pr;
+        let mu = req.params.mu;
+        let ag = req.params.ag;
+        let zo = req.params.zo;
+        let po = req.params.po;
+        let pa = req.params.pa;
+        let re = req.params.re;
+        let result = await campos_mysql.get_coordenadas(pr, mu, ag, zo, po, pa, re)
         return res.json(result)
     } catch (error) {
         next(error)
     }
 });
-
-router.put('/observaciones/:numpedid/:numlinea/:mensAriagroPedidos', async (req, res, next) => {
-    try {
-        let result = await campos_mysql.put_pedidos_observa_usu(req.params.numpedid, req.params.numlinea, req.params.mensAriagroPedidos)
-        return res.json(result)
-    } catch (error) {
-        next(error)
-    }
-});
-
 
 
 module.exports = router

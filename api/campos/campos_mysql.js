@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise')
 const connector = require('../../lib/conector_mysql')
 
-const productos_mysql = {
+const campos_mysql = {
     test: async () => {
         return 'CAMPOS TEST'
     },
@@ -13,13 +13,25 @@ const productos_mysql = {
             conn = await mysql.createConnection(cfg)
             let sql = `    
                 SELECT
-                s.nomsocio,
+               s.nomsocio,
+                c.codcampo,
+                c.nrocampo,
                 c.codsocio,
                 c.poligono, 
                 c.parcela, 
+                c.recintos,
                 c.supsigpa,
+                pu.codpobla,
+                pu.codsigpa,
                 c.latitud,
                 c.longitud,
+                c.supsigpa,
+                c.nroarbol,
+                c.anoplant,
+                c.refexterna,
+                c.nroregepa,
+                c.nrorea,
+                c.nrosiex,
                 v.nomvarie,
                 p.nomparti,
                 pu.despobla AS nombrepueblo
@@ -84,69 +96,150 @@ const productos_mysql = {
         }
     },
 
-    pedidos_observa: async (numpedid, numlinea) => {
+    campo_clasificacion: async (codcampo) => {
         let conn = undefined
+
         try {
             let cfg = await connector.base()
             conn = await mysql.createConnection(cfg)
-            let sql = `
-                SELECT * FROM pedidos_variedad_observa 
-                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
-            `;
-            const [result] = await conn.query(sql)
-            await conn.end();
-            return result
-        } catch (error) {
-            if (conn) {
-                await conn.end()
+
+            const sqlResumen = `
+            SELECT
+                IFNULL(h.kilos_clasificados, 0) AS kilos_clasificados,
+                IFNULL(c.kilos_rclasifica, 0) AS kilos_rclasifica,
+                IFNULL(e.kilos_rentradas, 0) AS kilos_rentradas,
+
+                IFNULL(h.kilos_clasificados, 0)
+                + IFNULL(c.kilos_rclasifica, 0)
+                + IFNULL(e.kilos_rentradas, 0) AS kilos_totales_recolectados,
+
+                IFNULL(c.kilos_rclasifica, 0)
+                + IFNULL(e.kilos_rentradas, 0) AS kilos_pendientes_clasificar,
+
+                fechas.primera_fecha_recoleccion,
+                fechas.ultima_fecha_recoleccion
+
+            FROM
+            (
+                    SELECT
+                        SUM(kilosnet) AS kilos_clasificados
+                    FROM rhisfruta
+                    WHERE codcampo = ?
+                ) h
+
+                CROSS JOIN
+
+                (
+                    SELECT
+                        SUM(kilosnet) AS kilos_rclasifica
+                    FROM rclasifica
+                    WHERE codcampo = ?
+                ) c
+
+                CROSS JOIN
+
+                (
+                    SELECT
+                        SUM(kilosnet) AS kilos_rentradas
+                    FROM rentradas
+                    WHERE codcampo = ?
+                ) e
+
+                CROSS JOIN
+
+                (
+                    SELECT
+                        MIN(fecha) AS primera_fecha_recoleccion,
+                        MAX(fecha) AS ultima_fecha_recoleccion
+                    FROM
+                    (
+                        SELECT fecalbar AS fecha
+                        FROM rhisfruta
+                        WHERE codcampo = ?
+
+                        UNION ALL
+
+                        SELECT fechaent
+                        FROM rclasifica
+                        WHERE codcampo = ?
+
+                        UNION ALL
+
+                        SELECT fechaent
+                        FROM rentradas
+                        WHERE codcampo = ?
+                    ) f
+                ) fechas
+                        `
+
+            const sqlClasificacion = `
+            SELECT  
+                rhisfruta_clasif.codcalid, 
+                rcalidad.nomcalid AS calidad, 
+                SUM(rhisfruta_clasif.kilosnet) AS kilos
+            FROM rhisfruta_clasif
+            INNER JOIN rcalidad 
+                ON rhisfruta_clasif.codvarie = rcalidad.codvarie 
+                AND rhisfruta_clasif.codcalid = rcalidad.codcalid
+            INNER JOIN rhisfruta 
+                ON rhisfruta.numalbar = rhisfruta_clasif.numalbar
+            WHERE rhisfruta.codcampo = ?
+            GROUP BY 1,2
+            ORDER BY 1,2
+        `
+
+            const [resumenResult] = await conn.query(sqlResumen, [
+                codcampo, // rhisfruta kilos
+                codcampo, // rclasifica kilos
+                codcampo, // rentradas kilos
+                codcampo, // rhisfruta fechas
+                codcampo, // rclasifica fechas
+                codcampo  // rentradas fechas
+            ])
+
+            const [clasificacion] = await conn.query(sqlClasificacion, [
+                codcampo
+            ])
+
+            await conn.end()
+
+            return {
+                resumen: resumenResult[0] || {
+                    kilos_clasificados: 0,
+                    kilos_rclasifica: 0,
+                    kilos_rentradas: 0,
+                    kilos_totales_recolectados: 0,
+                    kilos_pendientes_clasificar: 0,
+                    primera_fecha_recoleccion: null,
+                    ultima_fecha_recoleccion: null
+                },
+                clasificacion
             }
-            throw (error)
+
+        } catch (error) {
+            if (conn) await conn.end()
+            throw error
         }
     },
 
-    put_pedidos_observa_usu: async (numpedid, numlinea, mensAriagroPedidos) => {
-        let conn = undefined
+    get_coordenadas: async (pr, mu, ag, zo, po, pa, re) => {
         try {
-            let cfg = await connector.base()
-            conn = await mysql.createConnection(cfg)
-            let sql = `
-                UPDATE pedidos_variedad_observa 
-                SET usu${mensAriagroPedidos} = 1
-                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
-            `;
-            const [result] = await conn.query(sql)
-            await conn.end();
-            return result
-        } catch (error) {
-            if (conn) {
-                await conn.end()
-            }
-            throw (error)
-        }
-    },
+            const url = `https://sigpac-hubcloud.es/servicioconsultassigpac/query/recincentroid/${pr}/${mu}/${ag}/${zo}/${po}/${pa}/${re}.json`
+            const response = await fetch(url)
 
-    put_pedidos_variedad: async (numpedid, numlinea, datos) => {
-        let conn = undefined
-        try {
-            let cfg = await connector.base()
-            conn = await mysql.createConnection(cfg)
-            let sql = `
-                UPDATE pedidos_variedad 
-                SET ?
-                WHERE numpedid = ${numpedid} AND numlinea = ${numlinea}
-            `;
-            sql = mysql.format(sql, datos)
-            const [result] = await conn.query(sql)
-            await conn.end();
-            return result
-        } catch (error) {
-            if (conn) {
-                await conn.end()
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`)
             }
-            throw (error)
+
+            const data = await response.json()
+
+            console.log(data)
+            return data
+        } catch (error) {
+            console.error('Error consultando SIGPAC:', error.message)
         }
     }
 }
 
 
-module.exports = productos_mysql
+module.exports = campos_mysql
