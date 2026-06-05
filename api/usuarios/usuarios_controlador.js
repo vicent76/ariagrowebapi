@@ -8,8 +8,8 @@ let valBodyLogin = [
     body('password').notEmpty().withMessage('Debe incluir el password en el cuerpo del mensaje')
 ]
 
-let valGetFichajes = [
-    param('usuario').notEmpty().withMessage('Falta el Usuario de usuario')
+let valGetMenu = [
+    param('codusu').notEmpty().withMessage('Falta el codigo de usuario')
 ]
 
 let valGetFichajeUnico = [
@@ -54,7 +54,7 @@ router.post('/login', valBodyLogin, async (req, res, next) => {
     }
 })
 
-router.get('/fichajes_corto/:usuario', valGetFichajes, async (req, res, next) => {
+router.get('/recupera/menu/:codusu', valGetMenu, async (req, res, next) => {
     try {
         const errors = validationResult(req)
         if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() })
@@ -66,53 +66,5 @@ router.get('/fichajes_corto/:usuario', valGetFichajes, async (req, res, next) =>
     }
 })
 
-router.get('/fichajes_agrupado/:usuario', valGetFichajes, async (req, res, next) => {
-    try {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() })
-        const data = matchedData(req)
-        result = await usuarios_mysql.fichajes_agrupado(data)
-        return res.json(result)
-    } catch (error) {
-        next(error)
-    }
-})
-
-router.get('/fichajes_fecha/:usuario/:fecha', valGetFichajesFecha, async (req, res, next) => {
-    try {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() })
-        const data = matchedData(req)
-        result = await usuarios_mysql.fichajes_fecha(data)
-        return res.json(result)
-    } catch (error) {
-        next(error)
-    }
-})
-
-router.get('/fichajes_unico/:secuencia', valGetFichajeUnico, async (req, res, next) => {
-    try {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() })
-        const data = matchedData(req)
-        result = await usuarios_mysql.fichajes_unico(data)
-        if (!result) return res.status(404).json('Fichaje no encontrado')
-        return res.json(result)
-    } catch (error) {
-        next(error)
-    }
-})
-
-router.post('/fichajes', valPostFichaje, async (req, res, next) => {
-    try {
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() })
-        const data = matchedData(req)
-        result = await usuarios_mysql.crear_fichaje(data)
-        return res.json(result)
-    } catch (error) {
-        next(error)
-    }
-})
 
 module.exports = router
