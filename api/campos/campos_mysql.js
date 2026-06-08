@@ -22,20 +22,16 @@ const campos_mysql = {
                 c.parcela, 
                 c.recintos,
                 c.supsigpa,
-                pu.codpobla,
-                pu.codsigpa,
                 c.latitud,
                 c.longitud,
                 c.supsigpa,
                 c.nroarbol,
                 c.anoplant,
-                c.refexterna,
-                c.nroregepa,
-                c.nrorea,
-                c.nrosiex,
                 v.nomvarie,
                 p.nomparti,
-                pu.despobla AS nombrepueblo
+                pu.despobla AS nombrepueblo,
+                pu.codpobla,
+                pu.codsigpa
                 FROM rcampos AS c
                 LEFT JOIN rsocios AS s ON s.codsocio = c.codsocio
                 LEFT JOIN variedades AS v ON v.codvarie = c.codvarie 
@@ -223,6 +219,30 @@ const campos_mysql = {
         }
     },
 
+    campo_revision: async (codcampo) => {
+        let conn = undefined
+
+        try {
+            let cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+
+            const sql = `
+            SELECT * from rcampos_revision WHERE codcampo = ?
+            `
+            const [result] = await conn.query(sql, [
+                codcampo, // rhisfruta kilos
+            ])
+
+            await conn.end()
+
+            return result
+
+        } catch (error) {
+            if (conn) await conn.end()
+            throw error
+        }
+    },
+
     get_coordenadas: async (pr, mu, ag, zo, po, pa, re) => {
         try {
             const url = `https://sigpac-hubcloud.es/servicioconsultassigpac/query/recincentroid/${pr}/${mu}/${ag}/${zo}/${po}/${pa}/${re}.json`
@@ -239,7 +259,31 @@ const campos_mysql = {
         } catch (error) {
             console.error('Error consultando SIGPAC:', error.message)
         }
-    }
+    },
+
+    crear_revision: async (revision) => {
+        let conn = undefined
+
+        try {
+            let cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+
+            const sql = `
+            INSERT INTO rcampos_revision SET ?
+            `
+            const [result] = await conn.query(sql, [
+                revision
+            ])
+
+            await conn.end()
+
+            return result
+
+        } catch (error) {
+            if (conn) await conn.end()
+            throw error
+        }
+    },
 }
 
 

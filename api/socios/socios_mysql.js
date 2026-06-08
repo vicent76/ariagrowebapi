@@ -15,11 +15,14 @@ const socios_mysql = {
             const sql = `
                 SELECT
                     codsocio,
-                    nomsocio
-                FROM rsocios
-                WHERE fechabaja IS NULL
+                    nomsocio,
+                    nrorea,
+                    nrosiex,
+                    nroasociado
+                    FROM rsocios
+                    WHERE fechabaja IS NULL
                     AND nomsocio LIKE ?
-                ORDER BY nomsocio
+                    ORDER BY nomsocio
             `
 
             const [result] = await conn.query(sql, [`%${nombre}%`])

@@ -30,6 +30,14 @@ router.get('/socio/clasificacion/:codcampo', async (req, res, next) => {
     }
 });
 
+router.get('/socio/leer/revision/:codcampo', async (req, res, next) => {
+    try {
+        let result = await campos_mysql.campo_revision(req.params.codcampo)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+});
 
 
 router.get('/coordenadas/:pr/:mu/:ag/:zo/:po/:pa/:re', async (req, res, next) => {
@@ -48,5 +56,23 @@ router.get('/coordenadas/:pr/:mu/:ag/:zo/:po/:pa/:re', async (req, res, next) =>
     }
 });
 
+
+router.get('/socio/leer/revision/:codcampo', async (req, res, next) => {
+    try {
+        let result = await campos_mysql.campo_revision(req.params.codcampo)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+});
+
+router.post('/crear/revision', async (req, res, next) => {
+    try {
+        let result = await campos_mysql.crear_revision(req.body)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+});
 
 module.exports = router
