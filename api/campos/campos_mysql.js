@@ -227,7 +227,7 @@ const campos_mysql = {
             conn = await mysql.createConnection(cfg)
 
             const sql = `
-            SELECT * from rcampos_revision WHERE codcampo = ?
+            SELECT * from rcampos_revision WHERE codcampo = ? ORDER BY fecha DESC, numlinea DESC
             `
             const [result] = await conn.query(sql, [
                 codcampo, // rhisfruta kilos
@@ -268,22 +268,61 @@ const campos_mysql = {
             let cfg = await connector.base()
             conn = await mysql.createConnection(cfg)
 
+            await conn.beginTransaction()
+
+            const tecnicoId = revision.tecnicoId
+            delete revision.tecnicoId
+
             const sql = `
             INSERT INTO rcampos_revision SET ?
-            `
+        `
+
             const [result] = await conn.query(sql, [
                 revision
             ])
 
-            await conn.end()
+            const sqlU = `
+            SELECT COALESCE(MAX(idmensaje), 0) + 1 AS max_id 
+            FROM ${process.env.ARAW_MYSQL_DATABASE_USUARIOS}.info_mensajes
+            FOR UPDATE
+        `
+
+            const [result2] = await conn.query(sqlU)
+
+            const data = {
+                idmensaje: result2[0].max_id,
+                fecha: revision.fecha,
+                codusu: tecnicoId,
+                aplicacion: process.env.ARAW_MYSQL_DATABASE,
+                mensaje: revision.observac,
+                codusudes: null
+            }
+
+            const sqlU2 = `
+            INSERT INTO ${process.env.ARAW_MYSQL_DATABASE_USUARIOS}.info_mensajes SET ?
+        `
+
+            const [result3] = await conn.query(sqlU2, [
+                data
+            ])
+
+            await conn.commit()
 
             return result
 
         } catch (error) {
-            if (conn) await conn.end()
+            if (conn) {
+                await conn.rollback()
+            }
+
             throw error
+
+        } finally {
+            if (conn) {
+                await conn.end()
+            }
         }
-    },
+    }
 }
 
 
