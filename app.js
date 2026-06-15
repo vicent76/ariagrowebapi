@@ -30,9 +30,12 @@ const appServer = {
         app.use('/api/comparativa', require('./api/comparativa/comparativa_controlador'));
         app.use('/api/pedidos', require('./api/pedidos/pedidos_controlador'));
         app.use('/api/campos', require('./api/campos/campos_controlador'));
+        app.use('/api/exportaciones', require('./api/exportaciones/exportaciones_controlador'));
         app.use((req, res, next) => {
             res.sendFile(path.join(__dirname, "www", "index.html"));
         });
+
+        app.use('/ficheros', express.static('ficheros'))
 
         app.use((error, req, res, next) => {
             res.status(error.status || 500);
