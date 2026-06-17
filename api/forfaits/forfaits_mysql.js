@@ -1,16 +1,16 @@
 const mysql = require('mysql2/promise')
 const connector = require('../../lib/conector_mysql')
 
-const clientes_mysql = {
+const forfaits_mysql = {
     test: async () => {
-        return 'CLIENTES TEST'
+        return 'FORFAITS TEST'
     },
-    todos_clientes: async (data) => {
+    todos_forfaits: async (data) => {
         let conn = undefined
         try {
             let cfg = await connector.base()
             conn = await mysql.createConnection(cfg)
-            let sql = `select * from clientes`
+            let sql = `select * from forfaits`
             const [r] = await conn.query(sql)
             await conn.end()
             return r
@@ -22,7 +22,7 @@ const clientes_mysql = {
         }
     },
 
-    buscar_clientes_nombre: async (nombre) => {
+    buscar_forfaits_nombre: async (nombre) => {
         let conn = undefined
 
         try {
@@ -32,9 +32,9 @@ const clientes_mysql = {
             const sql = `
                 SELECT
                     *
-                    FROM clientes
-                    WHERE nomclien LIKE ?
-                    ORDER BY nomclien
+                    FROM forfaits
+                    WHERE nomconfe LIKE ?
+                    ORDER BY nomconfe
             `;
 
             const [result] = await conn.query(sql, [`%${nombre}%`])
@@ -49,4 +49,4 @@ const clientes_mysql = {
 }
 
 
-module.exports = clientes_mysql
+module.exports = forfaits_mysql

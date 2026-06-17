@@ -36,6 +36,32 @@ const variedades_mysql = {
             }
             throw (error)
         }
+    },
+
+    variedades_productos: async (list) => {
+        let conn
+
+        try {
+            const cfg = await connector.base()
+            conn = await mysql.createConnection(cfg)
+
+            const sql = `
+            SELECT *
+            FROM variedades
+            WHERE codprodu IN (?)
+        `
+
+            const [r] = await conn.query(sql, [list])
+
+            return r
+
+        } catch (error) {
+            throw (error)
+        } finally {
+            if (conn) {
+                await conn.end()
+            }
+        }
     }
 }
 

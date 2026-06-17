@@ -31,6 +31,7 @@ const appServer = {
         app.use('/api/pedidos', require('./api/pedidos/pedidos_controlador'));
         app.use('/api/campos', require('./api/campos/campos_controlador'));
         app.use('/api/exportaciones', require('./api/exportaciones/exportaciones_controlador'));
+        app.use('/api/forfaits', require('./api/forfaits/forfaits_controlador'));
         app.use((req, res, next) => {
             res.sendFile(path.join(__dirname, "www", "index.html"));
         });

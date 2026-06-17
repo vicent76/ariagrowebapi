@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const clientes_mysql = require('./clientes_mysql')
+const forfaits_mysql = require('./forfaits_mysql')
 
 
 router.get('/test', async (req, res, next) => {
     try {
-        const result = await clientes_mysql.test()
+        const result = await forfaits_mysql.test()
         res.json(result)
     } catch (error) {
         next(error)
@@ -14,7 +14,7 @@ router.get('/test', async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
     try {
-        result = await clientes_mysql.todos_clientes()
+        result = await forfaits_mysql.todos_forfaits()
         return res.json(result)
     } catch (error) {
         next(error)
@@ -30,7 +30,7 @@ router.get('/buscar', async (req, res, next) => {
       return res.json([])
     }
 
-    const result = await clientes_mysql.buscar_clientes_nombre(nombre)
+    const result = await forfaits_mysql.buscar_forfaits_nombre(nombre)
     return res.json(result)
   } catch (error) {
     next(error)
