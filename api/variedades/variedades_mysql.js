@@ -49,6 +49,7 @@ const variedades_mysql = {
             SELECT *
             FROM variedades
             WHERE codprodu IN (?)
+            Order by nomvarie ASC
         `
 
             const [r] = await conn.query(sql, [list])

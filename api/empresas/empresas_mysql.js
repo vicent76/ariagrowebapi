@@ -12,7 +12,25 @@ const empresas_mysql = {
             conn = await mysql.createConnection(cfg)
             let sql = `select * from empresasariagro WHERE ariagroweb = 1 ORDER BY fechaini ASC`
             const [r] = await conn.query(sql)
-            if (r.length === 0) return {NomEmpresa: 'DESCONOCIDA'}
+            if (r.length === 0) return { NomEmpresa: 'DESCONOCIDA' }
+            await conn.end()
+            return r
+        } catch (error) {
+            if (conn) {
+                await conn.end()
+            }
+            throw (error)
+        }
+    },
+
+    empresas: async (data) => {
+        let conn = undefined
+        try {
+            let cfg = await connector.usu()
+            conn = await mysql.createConnection(cfg)
+            let sql = `SELECT ariagro,IF (ariagro='ariagro',1,0) ppal ,codempre, nomempre
+                        FROM empresasariagro  WHERE ariagro <>'' ORDER BY 2 DESC,3 DESC`
+            const [r] = await conn.query(sql)
             await conn.end()
             return r
         } catch (error) {

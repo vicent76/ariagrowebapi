@@ -31,4 +31,26 @@ router.get('/socios/excel', async (req, res) => {
 });
 
 
+router.post('/ventas/excel', async (req, res, next) => {
+    try {
+        const workbook = await exportaciones_mysql.datos_ventas(req.body.filtros)
+
+        res.setHeader(
+            'Content-Type',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        )
+
+        res.setHeader(
+            'Content-Disposition',
+            'attachment; filename=ventas.xlsx'
+        )
+
+        await workbook.xlsx.write(res)
+        res.end()
+
+    } catch (error) {
+        next(error)
+    }
+})
+
 module.exports = router

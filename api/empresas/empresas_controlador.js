@@ -21,5 +21,14 @@ router.get('/', async (req, res, next) => {
     }
 })
 
+router.get('/todas', async (req, res, next) => {
+    try {
+        result = await empresas_mysql.empresas()
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+})
+
 
 module.exports = router
