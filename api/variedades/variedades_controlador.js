@@ -30,9 +30,10 @@ router.get('/:codprodu', async (req, res, next) => {
     }
 })
 
-router.post('/buscar/variedades/productos', async (req, res, next) => {
+router.post('/buscar/variedades/productos/:empresa', async (req, res, next) => {
     try {
-        result = await variedades_mysql.variedades_productos(req.body.list)
+        const empresa = req.params.empresa
+        result = await variedades_mysql.variedades_productos(req.body.list, empresa)
         return res.json(result)
     } catch (error) {
         next(error)

@@ -8,74 +8,48 @@ const exportaciones_mysql = {
     test: async () => {
         return 'COMPARATIVA TEST'
     },
-    datos_socios: async (data) => {
+    datos_socios: async (filtros) => {
         let conn
 
         try {
-            const cfg = await connector.base()
+            const cfg = await connector.empresa(filtros.empresa)
             conn = await mysql.createConnection(cfg)
 
             const sql = `
-            SELECT 
-                r.codsocio CODIGO,
-                r.nroasociado ASOCIADO,
-                r.nomsocio NOMBRE,
-                r.dirsocio DIRECCION,
-                r.codpostal CPOSTAL,
-                r.pobsocio POBLACION,
-                r.prosocio PROVINCIA,
-                p.nompaise PAIS,
-                r.nifsocio NIF,
-                r.telsoci1 TELF1,
-                r.telsoci2 TELF2,
-                r.telsoci3 TELF3,
-                r.movsocio MOVIL,
-                r.maisocio MAIL, 
-                r.fechaalta FALTA, 
-                r.fechabaja FBAJA,
-                r.fechanac FNACIMIENTO,
-                r.iban IBAN, 
-                r.observaciones OBSERVACIONES,
-
-                IF(r.tipoirpf = 0, 'MODULOS',
-                    IF(r.tipoirpf = 1, 'E.D.',
-                        IF(r.tipoirpf = 2, 'ENTIDAD', 'DESCONOCIDO')
-                    )
-                ) IRPF,
-
-                IF(r.tipoprod = 0, 'SOCIO',
-                    IF(r.tipoprod = 1, 'TERCERO',
-                        IF(r.tipoprod = 2, 'OTRA OPA',
-                            IF(r.tipoprod = 3, 'APORTACIONISTA',
-                                IF(r.tipoprod = 4, 'NO PRODUCTOR', 'DESCONOCIDO')
-                            )
-                        )
-                    )
-                ) TIPOSOCIO,
-
-                IF(r.tiporelacion = 0, 'SOCIO',
-                    IF(r.tiporelacion = 1, 'ASOCIADO',
-                        IF(r.tiporelacion = 2, 'TERCERO',
-                            IF(r.tiporelacion = 3, 'SOCIO TEMPORAL', 'DESCONOCIDO')
-                        )
-                    )
-                ) TIPORELACION,
-
-                s.nomsitua SITUACION,
-                r.votos VOTOS,
-                r.capital CAPITAL,
-
-                IF(r.hayembargo = 0, 'NO',
-                    IF(r.hayembargo = 1, 'SI', 'DESCONOCIDO')
-                ) EMBARGO,
-
-                r.nrorea REA,
-                r.nrosiex SIEX
-
-            FROM rsocios r
-            INNER JOIN rsituacion s ON r.codsitua = s.codsitua
-            INNER JOIN paises p ON r.codpaise = p.codpaise
-            LIMIT 10
+            select codsocio CODIGO,
+            nroasociado ASOCIADO,
+            nomsocio NOMBRE,
+            dirsocio DIRECCIÓN,
+            codpostal CPOSTAL,
+            pobsocio POBLACION,
+            prosocio PROVINCIA,
+            nompaise,
+            nifsocio NIF,
+            telsoci1 TELF1,
+            telsoci2 TELF2,
+            telsoci3 TELF3,
+            movsocio MOVIL,
+            maisocio MAIL, 
+            fechaalta FALTA, 
+            fechabaja FBAJA,
+            fechanac FNACIMIENTO,
+            iban IBAN, 
+            observaciones OBSERVACIONES,
+            IF(tipoirpf=0,'MODULOS',IF(tipoirpf=1,'E.D.',IF(tipoirpf=2,'ENTIDAD','DESCONOCIDO'))) IRPF,
+            IF(tipoprod=0,'SOCIO',IF(tipoprod=1,'TERCERO',IF(tipoprod=2,'OTRA OPA',IF(tipoprod=3,'APORTACIONISTA',IF(tipoprod=4,'NO PRODUCTOR','DESCONOCIDO'))))) TIPOSOCIO,
+            IF(tiporelacion=0,'SOCIO',IF(tiporelacion=1,'ASOCIADO',IF(tiporelacion=2,'TERCERO',IF(tiporelacion=3,'SOCIO TEMPORAL','DESCONOCIDO')))) TIPORELACION,
+            nomsitua,
+            votos,
+            capital,
+            IF(hayembargo=0,'NO',IF(hayembargo=1,'SI','DESCONOCIDO')) EMBARGO,
+            nrorea,
+            nrosiex
+            from rsocios, rsituacion, paises
+            where 
+            rsocios.codsitua=rsituacion.codsitua and
+            rsocios.codpaise=paises.codpaise and 
+            rsocios.codsocio >= ${filtros.dSocio} and rsocios.codsocio <= ${filtros.hSocio} and
+            rsocios.codsitua IN (${filtros.situaciones})
         `
 
             const [result] = await conn.query(sql)
@@ -109,7 +83,7 @@ const exportaciones_mysql = {
         let conn
 
         try {
-            const cfg = await connector.base()
+            const cfg = await connector.empresa(filtros.empresa)
             conn = await mysql.createConnection(cfg)
 
             const sql = sqlventas(filtros)

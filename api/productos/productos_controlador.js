@@ -31,4 +31,13 @@ router.get('/:codvarie', async (req, res, next) => {
     }
 });
 
+router.get('/todos/:empresa', async (req, res, next) => {
+    try {
+        result = await productos_mysql.todos_productos_empresa(req.params.empresa)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+});
+
 module.exports = router

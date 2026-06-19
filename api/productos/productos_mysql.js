@@ -21,6 +21,24 @@ const productos_mysql = {
             throw (error)
         }
     },
+
+    todos_productos_empresa: async (empresa) => {
+        let conn = undefined
+        try {
+            let cfg = await connector.empresa(empresa)
+            conn = await mysql.createConnection(cfg)
+            let sql = `select * from productos`
+            const [r] = await conn.query(sql)
+            await conn.end()
+            return r
+        } catch (error) {
+            if (conn) {
+                await conn.end()
+            }
+            throw (error)
+        }
+    },
+
     productos_variedad: async (codvarie) => {
         let conn = undefined
         try {

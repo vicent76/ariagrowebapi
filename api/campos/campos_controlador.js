@@ -57,14 +57,36 @@ router.get('/coordenadas/:pr/:mu/:ag/:zo/:po/:pa/:re', async (req, res, next) =>
 });
 
 
-router.get('/socio/leer/revision/:codcampo', async (req, res, next) => {
+router.get('/leer/partidas/buscar-por-empresa/:empresa', async (req, res, next) => {
     try {
-        let result = await campos_mysql.campo_revision(req.params.codcampo)
+        const nombre = req.query.nombre || ''
+        const empresa = req.params.empresa;
+        if (nombre.length < 3) {
+            return res.json([])
+        }
+
+        let result = await campos_mysql.partidas_buscar(nombre, empresa)
         return res.json(result)
     } catch (error) {
         next(error)
     }
 });
+
+router.get('/buscar/:empresa', async (req, res, next) => {
+    try {
+        const nombre = req.query.nombre || ''
+        const empresa = req.params.empresa;
+        if (nombre.length < 3) {
+            return res.json([])
+        }
+
+        const result = await clientes_mysql.buscar_clientes_nombre(nombre, empresa)
+        return res.json(result)
+    } catch (error) {
+        next(error)
+    }
+})
+
 
 router.post('/crear/revision', async (req, res, next) => {
     try {

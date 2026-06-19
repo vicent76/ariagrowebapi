@@ -22,11 +22,11 @@ const clientes_mysql = {
         }
     },
 
-    buscar_clientes_nombre: async (nombre) => {
+    buscar_clientes_nombre: async (nombre, empresa) => {
         let conn = undefined
 
         try {
-            const cfg = await connector.base()
+            const cfg = await connector.empresa(empresa)
             conn = await mysql.createConnection(cfg)
 
             const sql = `

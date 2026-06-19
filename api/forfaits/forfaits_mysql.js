@@ -22,11 +22,11 @@ const forfaits_mysql = {
         }
     },
 
-    buscar_forfaits_nombre: async (nombre) => {
+    buscar_forfaits_nombre: async (nombre, empresa) => {
         let conn = undefined
 
         try {
-            const cfg = await connector.base()
+            const cfg = await connector.empresa(empresa)
             conn = await mysql.createConnection(cfg)
 
             const sql = `

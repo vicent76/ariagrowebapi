@@ -11,9 +11,9 @@ router.get('/test', async (req, res, next) => {
         next(error)
     }
 })
-router.get('/socios/excel', async (req, res) => {
+router.post('/socios/excel', async (req, res) => {
 
-    const workbook = await exportaciones_mysql.datos_socios();
+    const workbook = await exportaciones_mysql.datos_socios(req.body.filtros);
 
     res.setHeader(
         'Content-Type',

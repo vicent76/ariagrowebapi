@@ -38,11 +38,11 @@ const variedades_mysql = {
         }
     },
 
-    variedades_productos: async (list) => {
+    variedades_productos: async (list, empresa) => {
         let conn
 
         try {
-            const cfg = await connector.base()
+            const cfg = await connector.empresa(empresa)
             conn = await mysql.createConnection(cfg)
 
             const sql = `

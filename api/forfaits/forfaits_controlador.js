@@ -22,15 +22,16 @@ router.get('/', async (req, res, next) => {
 })
 
 
-router.get('/buscar', async (req, res, next) => {
+router.get('/buscar/:empresa', async (req, res, next) => {
   try {
     const nombre = req.query.nombre || ''
 
     if (nombre.length < 3) {
       return res.json([])
     }
+    const empresa = req.params.empresa;
 
-    const result = await forfaits_mysql.buscar_forfaits_nombre(nombre)
+    const result = await forfaits_mysql.buscar_forfaits_nombre(nombre, empresa)
     return res.json(result)
   } catch (error) {
     next(error)
