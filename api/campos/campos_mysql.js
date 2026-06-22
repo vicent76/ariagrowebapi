@@ -27,6 +27,7 @@ const campos_mysql = {
                 c.supsigpa,
                 c.nroarbol,
                 c.anoplant,
+                c.refexterna AS refexternacampo,
                 v.nomvarie,
                 p.nomparti,
                 pu.despobla AS nombrepueblo,
@@ -40,6 +41,7 @@ const campos_mysql = {
                 WHERE c.codsocio = ${codsocio} AND c.fecbajas IS NULL
             `;
             let [result] = await conn.query(sql)
+            
             await conn.end();
             const toNumber = (v) => {
                 const n = Number(v);
@@ -57,6 +59,7 @@ const campos_mysql = {
                     result[i].numcajas = toNumber(result[i].numcajas);
                     result[i].totpalet = toNumber(result[i].totpalet);
                     result[i].kiloscaj = toNumber(result[i].kiloscaj);
+                    result[i].refexternacampo = 'AAAAAA' + i;
 
                     // 🔽 NUEVA LÓGICA
                     let actual = result[i];
@@ -346,7 +349,7 @@ const campos_mysql = {
         }
     },
 
-      buscar_clientes_nombre: async (nombre, empresa) => {
+    buscar_situaciones_campos: async (empresa) => {
         let conn = undefined
 
         try {
@@ -355,13 +358,10 @@ const campos_mysql = {
 
             const sql = `
                 SELECT
-                    *
-                    FROM clientes
-                    WHERE nomclien LIKE ?
-                    ORDER BY nomclien
-            `;
+                   * from rsituacioncampo
+            `
 
-            const [result] = await conn.query(sql, [`%${nombre}%`])
+            const [result] = await conn.query(sql)
 
             await conn.end()
             return result

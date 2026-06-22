@@ -9,6 +9,13 @@ const socios_mysql = {
         let conn = undefined
 
         try {
+            if (
+                !empresa ||
+                empresa === 'null' ||
+                empresa === 'undefined'
+            ) {
+                empresa = process.env.ARAW_MYSQL_DATABASE;
+            }
             const cfg = await connector.empresa(empresa)
             conn = await mysql.createConnection(cfg)
 
