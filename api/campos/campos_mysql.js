@@ -59,7 +59,6 @@ const campos_mysql = {
                     result[i].numcajas = toNumber(result[i].numcajas);
                     result[i].totpalet = toNumber(result[i].totpalet);
                     result[i].kiloscaj = toNumber(result[i].kiloscaj);
-                    result[i].refexternacampo = 'AAAAAA' + i;
 
                     // 🔽 NUEVA LÓGICA
                     let actual = result[i];
