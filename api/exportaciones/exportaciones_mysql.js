@@ -20,6 +20,10 @@ const exportaciones_mysql = {
 
             const [result] = await conn.query(sql)
 
+            if (!result || result.length === 0) {
+                throw new Error('Registros no encontrados')
+            }
+
             const workbook = new ExcelJS.Workbook()
             const sheet = workbook.addWorksheet('Socios')
 
@@ -55,6 +59,11 @@ const exportaciones_mysql = {
             const sql = sqlventas(filtros)
 
             const [result] = await conn.query(sql)
+
+            if (!result || result.length === 0) {
+                throw new Error('Registros no encontrados')
+            }
+
 
             const workbook = new ExcelJS.Workbook()
             const sheet = workbook.addWorksheet('Ventas-comercial')
@@ -92,6 +101,10 @@ const exportaciones_mysql = {
 
             const [result] = await conn.query(sql)
 
+            if (!result || result.length === 0) {
+                throw new Error('Registros no encontrados')
+            }
+
             const workbook = new ExcelJS.Workbook()
             const sheet = workbook.addWorksheet('Campos')
 
@@ -126,6 +139,11 @@ const exportaciones_mysql = {
             const sql = sqlRecoleccion(filtros)
 
             const [result] = await conn.query(sql)
+
+            if (!result || result.length === 0) {
+                throw new Error('Registros no encontrados')
+            }
+
 
             const workbook = new ExcelJS.Workbook()
             const sheet = workbook.addWorksheet('Recoleccion')
@@ -308,6 +326,14 @@ function sqlventas(filtros) {
         sql += ` AND forfaits.codforfait <= '${filtros.hForfait}'`;
     }
 
+    if (filtros.dProducto) {
+        sql += ` AND variedades.codprodu >= '${filtros.dProducto}'`;
+    }
+
+    if (filtros.hProducto) {
+        sql += ` AND variedades.codprodu <= '${filtros.hProducto}'`;
+    }
+
     if (Array.isArray(filtros.variedades) && filtros.variedades.length > 0) {
         sql += ` AND albaran_variedad.codvarie IN (${filtros.variedades.join(',')})`;
     }
@@ -389,6 +415,14 @@ function sqlCampos(filtros) {
         sql += ` AND rsituacioncampo.codsitua IN (${filtros.situaciones.join(',')})`;
     }
 
+    if (filtros.dProducto) {
+        sql += ` AND variedades.codprodu >= '${filtros.dProducto}'`;
+    }
+
+    if (filtros.hProducto) {
+        sql += ` AND variedades.codprodu <= '${filtros.hProducto}'`;
+    }
+
     if (!filtros.verCamposBaja) {
         sql += ` AND fecbajas IS NULL`;
     }
@@ -451,6 +485,15 @@ function sqlRecoleccion(filtros) {
     if (filtros.hSocio) {
         sql += ` AND h.codsocio <= ${filtros.hSocio}`;
     }
+
+    if (filtros.dProducto) {
+        sql += ` AND variedades.codprodu >= '${filtros.dProducto}'`;
+    }
+
+    if (filtros.hProducto) {
+        sql += ` AND variedades.codprodu <= '${filtros.hProducto}'`;
+    }
+
 
     if (Array.isArray(filtros.variedades) && filtros.variedades.length > 0) {
         sql += ` AND h.codvarie IN (${filtros.variedades.join(',')})`;

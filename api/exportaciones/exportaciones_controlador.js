@@ -12,22 +12,27 @@ router.get('/test', async (req, res, next) => {
     }
 })
 router.post('/socios/excel', async (req, res) => {
+    try {
+        const workbook = await exportaciones_mysql.datos_socios(req.body.filtros);
 
-    const workbook = await exportaciones_mysql.datos_socios(req.body.filtros);
+        res.setHeader(
+            'Content-Type',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        );
 
-    res.setHeader(
-        'Content-Type',
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    );
+        res.setHeader(
+            'Content-Disposition',
+            'attachment; filename=socios.xlsx'
+        );
 
-    res.setHeader(
-        'Content-Disposition',
-        'attachment; filename=socios.xlsx'
-    );
+        await workbook.xlsx.write(res);
 
-    await workbook.xlsx.write(res);
-
-    res.end();
+        res.end();
+    } catch (error) {
+        res.status(500).json({
+            message: error.message || 'Error generando Excel'
+        });
+    }
 });
 
 
@@ -49,7 +54,9 @@ router.post('/ventas/excel', async (req, res, next) => {
         res.end()
 
     } catch (error) {
-        next(error)
+        res.status(500).json({
+            message: error.message || 'Error generando Excel'
+        });
     }
 })
 
@@ -71,7 +78,9 @@ router.post('/campos/excel', async (req, res, next) => {
         res.end()
 
     } catch (error) {
-        next(error)
+        res.status(500).json({
+            message: error.message || 'Error generando Excel'
+        });
     }
 })
 
@@ -93,7 +102,9 @@ router.post('/recoleccion/excel', async (req, res, next) => {
         res.end()
 
     } catch (error) {
-        next(error)
+        res.status(500).json({
+            message: error.message || 'Error generando Excel'
+        });
     }
 })
 
