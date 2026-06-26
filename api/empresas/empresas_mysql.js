@@ -29,7 +29,7 @@ const empresas_mysql = {
             let cfg = await connector.usu()
             conn = await mysql.createConnection(cfg)
             let sql = `SELECT ariagro,IF (ariagro='ariagro',1,0) ppal ,codempre, nomempre
-                        FROM empresasariagro  WHERE ariagro <>'' ORDER BY 2 DESC,3 DESC`
+                        FROM empresasariagro  WHERE ariagro <>'' AND ariagroweb = 1 ORDER BY orden ASC`
             const [r] = await conn.query(sql)
             await conn.end()
             return r
