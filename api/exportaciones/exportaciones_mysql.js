@@ -50,13 +50,19 @@ const exportaciones_mysql = {
     },
 
     datos_ventas: async (filtros) => {
-        let conn
+        let conn;
+        let sql = null;
 
         try {
             const cfg = await connector.empresa(filtros.empresa)
             conn = await mysql.createConnection(cfg)
 
-            const sql = sqlventas(filtros)
+            if (!filtros.porCalibre) {
+                sql = sqlventas(filtros)
+            } else {
+                sql = sqlventasCalibre(filtros)
+            }
+
 
             const [result] = await conn.query(sql)
 
@@ -349,6 +355,132 @@ function sqlventas(filtros) {
     return sql;
 }
 
+function sqlventasCalibre(filtros) {
+    let sql = `
+        SELECT 
+            albaran.fechaalb FECHA, 
+            albaran.numalbar ALBARAN,
+            albaran_variedad.numlinea LIN,
+            clientes.codclien CLIENTE,
+            nomclien 'NOMBRE CLIENTE',
+            albaran.coddesti DESTINO,
+            nomdesti 'NOMBRE DESTINO',
+            albaran_variedad.codvarie VARIEDAD,
+            nomvarie 'NOMBRE VARIEDAD',
+            albaran_variedad.codforfait CONFECCION,
+            nomconfe 'NOMBRE CONFECCION',
+            albaran_variedad.codmarca MARCA,
+            nommarca 'NOMBRE MARCA',
+            COALESCE(albaran_variedad.totpalet,0) PALETS,
+            calibres.nomcalib 'CALIBRE',
+            albaran_calibre.numcajas CAJAS,
+            COALESCE(albaran_calibre.unidades,0) UNIDADES, 
+            forfaits.kiloscaj 'KGS/CAJA', 
+            albaran_calibre.pesobrut 'P.BRUTO',
+            albaran_calibre.pesoneto 'P.NETO', 
+            albaran_variedad.preciopro 'PRECIO PRO.',
+            COALESCE(albaran_variedad.preciodef,0) 'PRECIO DEF.',
+            SUM(facturas_variedad.impornet) 'IMP.FACTURADO', 
+            IF(facturas_variedad.numalbar IS NULL, 'NO','SI') FACTURADO,
+            t.gastos 'GASTOS CONF',
+            t.envases 'GASTOS MAT.',
+            t.portes 'GASTOS PORTES',
+            t.totalgastos 'TOTAL GASTOS',
+            ROUND(IF( albaran_calibre.numcajas = 0, 0, totalgastos /  albaran_calibre.numcajas), 4) 'GASTOxCAJA',
+            ROUND(IF(albaran_calibre.pesoneto = 0, 0, totalgastos / albaran_calibre.pesoneto), 4) 'GASTOxKILO',
+            ROUND(IF(albaran_calibre.numcajas = 0, 0, SUM(facturas_variedad.impornet) /  albaran_calibre.numcajas), 4) 'FACT. x CAJA',
+            ROUND(IF(albaran_calibre.pesoneto = 0, 0, SUM(facturas_variedad.impornet) / albaran_calibre.pesoneto), 4) 'FACT. x KILO',
+            SUM(facturas_variedad.impornet) - t.totalgastos 'VALOR FRUTA',
+            ROUND(IF(albaran_calibre.numcajas = 0, 0, (SUM(facturas_variedad.impornet) - t.totalgastos) /  albaran_calibre.numcajas), 4) 'NETO-CAJA',
+            ROUND(IF(albaran_calibre.pesoneto = 0, 0, (SUM(facturas_variedad.impornet) - t.totalgastos) / albaran_calibre.pesoneto), 4) 'NETO-KILO'
+        FROM albaran 
+            INNER JOIN albaran_variedad 
+                ON albaran.numalbar = albaran_variedad.numalbar
+            INNER JOIN albaran_calibre
+                ON albaran_calibre.numalbar = albaran_variedad.numalbar 
+                AND albaran_calibre.numlinea = albaran_variedad.numlinea 
+                AND albaran_calibre.codvarie = albaran_variedad.codvarie 
+            INNER JOIN calibres
+                ON calibres.codcalib = albaran_calibre.codcalib 
+                AND calibres.codvarie = albaran_calibre.codvarie
+            INNER JOIN variedades 
+                ON albaran_variedad.codvarie = variedades.codvarie
+            INNER JOIN clientes 
+                ON albaran.codclien = clientes.codclien
+            INNER JOIN destinos 
+                ON albaran.codclien = destinos.codclien 
+                AND albaran.coddesti = destinos.coddesti
+            INNER JOIN forfaits 
+                ON albaran_variedad.codforfait = forfaits.codforfait
+            INNER JOIN marcas 
+                ON albaran_variedad.codmarca = marcas.codmarca
+            INNER JOIN (
+                SELECT 
+                    numalbar,
+                    numlinea,
+                    ROUND(SUM(IF(tipogasto = 0, albaran_costes.impcoste, 0)), 2) gastos,
+                    ROUND(SUM(IF(tipogasto = 1, albaran_costes.impcoste, 0)), 2) envases,
+                    ROUND(SUM(IF(tipogasto = 2, albaran_costes.impcoste, 0)), 2) portes,
+                    ROUND(SUM(albaran_costes.impcoste), 2) totalgastos
+                FROM albaran_costes 
+                GROUP BY numalbar, numlinea
+            ) AS t 
+                ON t.numalbar = albaran.numalbar 
+                AND t.numlinea = albaran_variedad.numlinea
+            LEFT JOIN facturas_variedad 
+                ON albaran_variedad.numalbar = facturas_variedad.numalbar 
+                AND albaran_variedad.numlinea = facturas_variedad.numlinealbar
+        WHERE 1 = 1
+    `;
+
+    if (filtros.desde) {
+        sql += ` AND albaran.fechaalb >= '${filtros.desde}'`;
+    }
+
+    if (filtros.hasta) {
+        sql += ` AND albaran.fechaalb <= '${filtros.hasta}'`;
+    }
+
+    if (filtros.dCliente) {
+        sql += ` AND clientes.codclien >= ${filtros.dCliente}`;
+    }
+
+    if (filtros.hCliente) {
+        sql += ` AND clientes.codclien <= ${filtros.hCliente}`;
+    }
+
+    if (filtros.dForfait) {
+        sql += ` AND forfaits.codforfait >= '${filtros.dForfait}'`;
+    }
+
+    if (filtros.hForfait) {
+        sql += ` AND forfaits.codforfait <= '${filtros.hForfait}'`;
+    }
+
+    if (filtros.dProducto) {
+        sql += ` AND variedades.codprodu >= '${filtros.dProducto}'`;
+    }
+
+    if (filtros.hProducto) {
+        sql += ` AND variedades.codprodu <= '${filtros.hProducto}'`;
+    }
+
+    if (Array.isArray(filtros.variedades) && filtros.variedades.length > 0) {
+        sql += ` AND albaran_variedad.codvarie IN (${filtros.variedades.join(',')})`;
+    }
+
+
+    sql += `
+        GROUP BY 
+            albaran.fechaalb, 
+            albaran.numalbar,
+            albaran_variedad.numlinea
+    `;
+
+    return sql;
+}
+
+
 function sqlCampos(filtros) {
     let sql = `
         SELECT 
@@ -356,7 +488,9 @@ function sqlCampos(filtros) {
             nrocampo NUMERO,
             refexterna REFEXTERNA,
             rcampos.codsocio SOCIO, 
-            nomsocio NOMSOCIO, 
+            nomsocio NOMSOCIO,
+            rcampos.codigoggap CODIGO_GGAP,
+            rglobalgap.descripcion PRODUCTOR,
             fecaltas FALTA,
             fecbajas FBAJA,
             rcampos.codvarie VARIEDAD,
@@ -380,7 +514,7 @@ function sqlCampos(filtros) {
             rcampos.codcapat CAPATAZ, 
             rcapataz.nomcapat NOMCAPATAZ,
             nrollave LLAVE
-        FROM rcampos, rsocios, variedades, rpartida, rpueblos, rsituacioncampo, rcapataz, rzonas
+        FROM rcampos, rsocios, variedades, rpartida, rpueblos, rsituacioncampo, rcapataz, rzonas, rglobalgap
         WHERE 
             rcampos.codsocio = rsocios.codsocio
             AND rcampos.codvarie = variedades.codvarie
@@ -389,6 +523,7 @@ function sqlCampos(filtros) {
             AND rcampos.codsitua = rsituacioncampo.codsitua
             AND rcampos.codcapat = rcapataz.codcapat
             AND rcampos.codzonas = rzonas.codzonas
+            AND rcampos.codigoggap = rglobalgap.codigo
     `;
 
     if (filtros.dSocio) {
