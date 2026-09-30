@@ -34,7 +34,10 @@ const exportaciones_mysql = {
                     width: 20
                 }))
 
-                sheet.addRows(result)
+                sheet.addRows(result);
+
+                formatearExcel(sheet);
+                ajustarAnchoColumnas(sheet);
             }
 
 
@@ -81,7 +84,10 @@ const exportaciones_mysql = {
                     width: 20
                 }))
 
-                sheet.addRows(result)
+                sheet.addRows(result);
+
+                formatearExcel(sheet);
+                ajustarAnchoColumnas(sheet);
             }
 
             return workbook
@@ -121,7 +127,10 @@ const exportaciones_mysql = {
                     width: 20
                 }))
 
-                sheet.addRows(result)
+                sheet.addRows(result);
+
+                formatearExcel(sheet);
+                ajustarAnchoColumnas(sheet);
             }
 
             return workbook
@@ -161,7 +170,10 @@ const exportaciones_mysql = {
                     width: 20
                 }))
 
-                sheet.addRows(result)
+                sheet.addRows(result);
+
+                formatearExcel(sheet);
+                ajustarAnchoColumnas(sheet);
             }
 
             return workbook
@@ -641,4 +653,88 @@ function sqlRecoleccion(filtros) {
     return sql;
 }
 
+function formatearExcel(sheet) {
+
+    // ------------------------------------
+    // CABECERA
+    // ------------------------------------
+    const headerRow = sheet.getRow(1);
+
+    headerRow.height = 28;
+
+    headerRow.font = {
+        bold: true,
+        color: { argb: 'FFFFFFFF' }
+    };
+
+    headerRow.alignment = {
+        vertical: 'middle',
+        horizontal: 'center'
+    };
+
+    headerRow.eachCell((cell) => {
+
+        cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: 'FF4472C4' }
+        };
+
+        cell.border = {
+            bottom: {
+                style: 'thin',
+                color: { argb: 'FF808080' }
+            }
+        };
+    });
+
+    // ------------------------------------
+    // CONGELAR CABECERA
+    // ------------------------------------
+    sheet.views = [{
+        state: 'frozen',
+        ySplit: 1
+    }];
+
+
+    // ------------------------------------
+    // ALINEACIÓN GENERAL
+    // ------------------------------------
+    sheet.eachRow((row, rowNumber) => {
+
+        if (rowNumber === 1) return;
+
+        row.alignment = {
+            vertical: 'middle'
+        };
+    });
+}
+
+function ajustarAnchoColumnas(sheet) {
+
+    sheet.columns.forEach(column => {
+
+        // Anchos específicos
+        if (column.key === 'FECHA') {
+            column.width = 12;
+            return;
+        }
+
+        let maxLength = 0;
+
+        column.eachCell({ includeEmpty: true }, cell => {
+
+            const valor = cell.value == null
+                ? ''
+                : cell.value.toString();
+
+            maxLength = Math.max(maxLength, valor.length);
+        });
+
+        column.width = Math.min(
+            Math.max(maxLength + 2, 10),
+            35
+        );
+    });
+}
 module.exports = exportaciones_mysql
